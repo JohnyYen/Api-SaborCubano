@@ -15,6 +15,6 @@ namespace api.Models
         [Column(TypeName = "bytea[]")]
         public ICollection<byte[]>? Gallery {get; set;}
         public ICollection<Activity>? Activities {get; set;}
-        public ICollection<Coupon>? Coupons {get; set;}
+        public ICollection<CouponAppUser>? CouponAppUsers {get; set;}
     }
 }
