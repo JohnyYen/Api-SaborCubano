@@ -15,6 +15,6 @@ namespace api.Models
         
         public string Name {get; set;} = null!;
         public double Score {get; set;}
-        public ICollection<User>? Users {get; set;}
+        public ICollection<AppUserActivity>? AppUserActivities {get; set;}
     }
 }

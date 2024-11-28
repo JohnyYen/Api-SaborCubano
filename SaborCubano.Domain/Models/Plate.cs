@@ -27,7 +27,5 @@ namespace api.Models
 
         public ICollection<Ingredient>? Ingredients {get; set;}
         public ICollection<CookType>? CookTypes {get; set;}
-        public ICollection<Allergense>? Allergenses {get; set;}
-
     }
 }
