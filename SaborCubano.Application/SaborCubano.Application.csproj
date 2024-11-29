@@ -10,6 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Commons\" />
+    <Folder Include="Commons\Mappers\" />
     <Folder Include="Features\CookType\Query\ToList\" />
     <Folder Include="Features\Restaurant\Command\" />
     <Folder Include="Features\Restaurant\Command\Create\" />
