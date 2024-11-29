@@ -1,40 +1,14 @@
-using System;
+using System.Linq.Expressions;
 using api.Models;
-using SaborCubano.Domain.Interfaces;
+using SaborCubano.Application.DTOs.Restaurant;
+using SaborCubano.Application.Interfaces;
 using SaborCubano.Infrastructure.Persistence;
 
 namespace SaborCubano.Infrastructure.Repositories;
 
-public class RestaurantRepository : IRestaurantRepository
+public class RestaurantRepository : GenericRepository<Restaurant>
 {
-    private readonly ApplicationDBContext _context;
-
-    public RestaurantRepository(ApplicationDBContext context){
-        _context = context;
-    }
-    public Task<Restaurant> CreateAsync(Restaurant restaurant)
+    public RestaurantRepository(ApplicationDBContext context) : base(context)
     {
-        
-    }
-
-    public Task<Restaurant?> DeleteAsync(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<List<Restaurant>> GetAllAsync()
-    {
-        return await _context.Restaurants.ToList();
-    }
-
-    public async Task<Restaurant?> GetByIdAsync(int id)
-    {
-        var item = await_context.Restaurants.FindAsync(id);
-        return Task(item);
-    }
-
-    public async Task<Restaurant?> UpdateAsync(Restaurant restaurant)
-    {
-        throw new NotImplementedException();
     }
 }

@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using SaborCubano.Domain;
+using SaborCubano.Domain.Models;
 
 namespace api.Models
 {
@@ -25,7 +26,7 @@ namespace api.Models
 
         public float Calories {get; set;}
 
-        public ICollection<Ingredient>? Ingredients {get; set;}
-        public ICollection<CookType>? CookTypes {get; set;}
+        public ICollection<PlateIngredient>? Ingredients {get; set;}
+        public ICollection<PlateCookType>? CookTypes {get; set;}
     }
 }

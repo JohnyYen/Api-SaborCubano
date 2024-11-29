@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-using api.Model;
+using SaborCubano.Domain.Models;
 
 namespace api.Models
 {
@@ -14,7 +14,7 @@ namespace api.Models
 
         [Column(TypeName = "bytea[]")]
         public ICollection<byte[]>? Gallery {get; set;}
-        public ICollection<AppUserActivity>? AppUserActivities {get; set;}
-        public ICollection<CouponAppUser>? CouponAppUsers {get; set;}
+        public ICollection<AppUserActivity>? Activities {get; set;}
+        public ICollection<CouponAppUser>? Coupon {get; set;}
     }
 }

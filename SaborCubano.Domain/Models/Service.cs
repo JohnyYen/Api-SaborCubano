@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using SaborCubano.Domain;
+using SaborCubano.Domain.Models;
 
 namespace api.Models
 {
@@ -13,6 +14,6 @@ namespace api.Models
     {
         public string Name {get; set;} = String.Empty;
 
-        public ICollection<RestaurantService>? RestaurantServices {get; set;}
+        public ICollection<RestaurantService>? Restaurants {get; set;}
     }
 }

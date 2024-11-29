@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using api.Models;
 using SaborCubano.Domain;
+using SaborCubano.Domain.Models;
 
 namespace api.Models
 {
@@ -39,11 +40,11 @@ namespace api.Models
         public RestaurantChief? Chief {get; set;}
 
 
-        public ICollection<RestaurantBussinesType>? RestaurantBussinesTypes {get; set;}
+        public ICollection<RestaurantBussinesType>? BussinesTypes {get; set;}
 
-        public ICollection<RestaurantFoodTypes>? RestaurantFoodTypes {get; set;}
+        public ICollection<RestaurantFoodTypes>? FoodTypes {get; set;}
 
-        public ICollection<RestaurantService>? RestaurantServices {get; set;}
+        public ICollection<RestaurantService>? Services {get; set;}
 
         public ICollection<Coupon>? Coupons {get; set;}
     }

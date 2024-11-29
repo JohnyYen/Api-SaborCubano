@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using api.Models;
 using SaborCubano.Domain;
+using SaborCubano.Domain.Models;
 
 namespace api.Models
 {
@@ -14,7 +15,7 @@ namespace api.Models
     {
         [ForeignKey(nameof(AppUser))]
         public int Id_User {get; set;}
-        public ICollection<CouponAppUser>? CouponAppUsers {get; set;};
+        public ICollection<CouponAppUser>? AppUsers {get; set;} = null!;
 
         [ForeignKey(nameof(Restaurant))]
         public int Id_Res {get; set;}
