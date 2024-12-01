@@ -10,14 +10,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commons\" />
-    <Folder Include="Commons\Mappers\" />
     <Folder Include="Features\CookType\Query\ToList\" />
-    <Folder Include="Features\Restaurant\Command\" />
-    <Folder Include="Features\Restaurant\Command\Create\" />
-    <Folder Include="Features\Restaurant\Command\Delete\" />
-    <Folder Include="Features\Restaurant\Command\Update\" />
-    <Folder Include="Features\Restaurant\Querys\GetById\" />
+    <Folder Include="Features\Restaurants\Command\" />
+    <Folder Include="Features\Restaurants\Command\Create\" />
+    <Folder Include="Features\Restaurants\Command\Delete\" />
+    <Folder Include="Features\Restaurants\Command\Update\" />
   </ItemGroup>
 
   <PropertyGroup>

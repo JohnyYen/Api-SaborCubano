@@ -34,16 +34,25 @@ public class GenericRepository<TModel> : IGenericRepository<TModel> where TModel
         return entity;
     }
 
-    public async Task<List<TModel>> GetAllAsync(Expression<Func<TModel, bool>>? filter)
+    public IQueryable<TModel> FindAsync(Expression<Func<TModel, bool>> filter = null!)
     {
-        if(filter == null) return await _context.GetDbSet<TModel>().ToListAsync();
+        return _context.GetDbSet<TModel>().Where(filter);
+    }
 
-        return await _context.GetDbSet<TModel>().Where(filter).ToListAsync();
+    public async Task<TModel?> FindOneAsync(Expression<Func<TModel, bool>> filter)
+    {
+        return await _context.GetDbSet<TModel>().FirstOrDefaultAsync(filter);
+    }
+
+    public IQueryable<TModel> GetAllAsync()
+    {
+        var entity = _context.GetDbSet<TModel>();
+        return entity;
     }
 
     public async Task<TModel?> GetByIdAsync(int id)
     {
-        return await _context.GetDbSet<TModel>().FindAsync(id);;
+        return await _context.GetDbSet<TModel>().FindAsync(id);
     }
 
     public async Task<TModel?> UpdateAsync(GenericDTO<TModel> entityDto, int id)

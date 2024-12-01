@@ -38,8 +38,7 @@ namespace api.Models
         [ForeignKey(nameof(Chief))]
         public int? Id_User {get; set;}
         public RestaurantChief? Chief {get; set;}
-
-
+        
         public ICollection<RestaurantBussinesType>? BussinesTypes {get; set;}
 
         public ICollection<RestaurantFoodTypes>? FoodTypes {get; set;}
