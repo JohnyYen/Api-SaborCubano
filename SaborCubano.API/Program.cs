@@ -11,8 +11,8 @@ builder.Services.AddControllers();
 {
     builder.Services
     .AddApplicationService()
-    .AddInfrastructureService(builder.Configuration)
-    .AddApiServices();
+    .AddApiServices()
+    .AddInfrastructureService(builder.Configuration);
 
 }
 

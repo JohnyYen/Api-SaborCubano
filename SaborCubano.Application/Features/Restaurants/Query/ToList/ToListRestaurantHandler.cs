@@ -10,9 +10,9 @@ namespace SaborCubano.Application.Features.Restaurant.Querys.ToList;
 
 public class ToListRestaurantHandler : IRequestHandler<ToListRestaurantQuery, IEnumerable<RestaurantDTO>>
 {
-    private IGenericRepository<api.Models.Restaurant> _repo = null!;
+    private IRestaurantRepository _repo = null!;
 
-    public ToListRestaurantHandler(IGenericRepository<api.Models.Restaurant> repository){
+    public ToListRestaurantHandler(IRestaurantRepository repository){
         _repo = repository;
     }
 
