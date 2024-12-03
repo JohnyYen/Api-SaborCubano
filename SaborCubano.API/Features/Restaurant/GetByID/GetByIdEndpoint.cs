@@ -13,7 +13,7 @@ public class GetByIdRestaurantEndpoint : Endpoint<GetByIdRequest, RestaurantDTO>
 
     public override void Configure()
     {
-        Get("api/restaurant");
+        Get("api/restaurant/unique");
         AllowAnonymous();
     }
 
