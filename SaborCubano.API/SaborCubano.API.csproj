@@ -10,10 +10,15 @@
     <PackageReference Include="FastEndpoints" Version="5.31.0.12-beta" />
     <PackageReference Include="FastEndpoints.Swagger" Version="5.31.0.12-beta" />
     <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SaborCubano.Application\SaborCubano.Application.csproj" />
+    <ProjectReference Include="..\SaborCubano.Infrastructure\SaborCubano.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

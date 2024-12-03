@@ -1,13 +1,15 @@
 using System;
+using System.Reflection;
 using api.Models;
 using Microsoft.Extensions.Configuration;
+using SaborCubano.Infrastructure.Persistence.ModelConfiguration;
 
 namespace SaborCubano.Infrastructure.Persistence;
 
 public class ApplicationDBContext : DbContext
 {
     public virtual DbSet<Restaurant> Restaurants {get; set;} = null!;
-    public ApplicationDBContext(DbContextOptions options) : base(options){
+    public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options){
         
     }
 
@@ -15,10 +17,24 @@ public class ApplicationDBContext : DbContext
         return Set<TModel>();
     }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        base.OnConfiguring(optionsBuilder);
+        optionsBuilder.UseNpgsql("HOST=Localhost;USERNAME=postgres;Database=SaborCubano;PORT=5432;PASSWORD=0403");
+    }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDBContext).Assembly);
+
         base.OnModelCreating(builder);
-        
-       
+        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+        builder.AddRestaurantConfiguration();
+        builder.AddReviewConfiguration();    
+        builder.AddUserConfiguration();      
+        builder.AddCouponConfiguration();    
+
+
     }
 }

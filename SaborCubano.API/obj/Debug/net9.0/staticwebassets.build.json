@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "aeMKN7djOAD5ngd7GRZQf/aDiDJS3FX8Ql/yOvlAP6w=",
+  "Source": "SaborCubano.API",
+  "BasePath": "_content/SaborCubano.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

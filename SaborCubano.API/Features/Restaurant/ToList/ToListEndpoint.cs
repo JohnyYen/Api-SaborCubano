@@ -1,8 +1,11 @@
 using System;
+using api.Models;
+using SaborCubano.Application.DTOs.Restaurant;
+using SaborCubano.Application.Features.Restaurants.Querys.ToList;
 
 namespace SaborCubano.API.Features.Restaurant.ToList;
 
-public class ToListEndpoint : Endpoint<ToListResponse>
+public class ToListEndpoint : EndpointWithoutRequest<IEnumerable<RestaurantDTO>>
 {
 
     private readonly IMediator _mediator;
@@ -15,8 +18,8 @@ public class ToListEndpoint : Endpoint<ToListResponse>
         AllowAnonymous();
     }
 
-    public override Task<ToListResponse> ExecuteAsync(CancellationToken ct){
+    public override Task<IEnumerable<RestaurantDTO>> ExecuteAsync(CancellationToken ct){
         
-       // return Task Task.FromResult()
+       return _mediator.Send(new ToListRestaurantQuery());
     }
 }
