@@ -9,6 +9,7 @@ public static class APIServices
         services.AddControllers();
         services.AddEndpointsApiExplorer();
         services.AddProblemDetails();
+        services.AddFastEndpoints();
 
         return services;
     }

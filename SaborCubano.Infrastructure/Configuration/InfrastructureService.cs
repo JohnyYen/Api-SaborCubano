@@ -17,6 +17,11 @@ public static class InfrastructureService
 
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddScoped<IRestaurantRepository, RestaurantRepository>();
+        services.AddScoped<IServiceRepository, ServiceRepository>();
+        services.AddScoped<IFoodTypesRepository, FoodTypesRepository>();
+        services.AddScoped<IBussinesRepository, BussinesRepository>();
+        services.AddScoped<ICookTypeRepository, CookTypeRepository>();
+        
         return services;
     }
 }

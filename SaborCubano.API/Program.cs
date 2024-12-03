@@ -21,7 +21,7 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-app.UseFastEndpoints();
+app.UseFastEndpoints().UseSwaggerUi();
 app.UseSwaggerGen();
 
 app.UseAuthorization();

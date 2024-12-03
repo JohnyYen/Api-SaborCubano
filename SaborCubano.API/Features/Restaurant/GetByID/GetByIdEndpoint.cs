@@ -1,5 +1,6 @@
 using System;
 using SaborCubano.Application.DTOs.Restaurant;
+using SaborCubano.Application.Features.Restaurants.Querys.GetById;
 
 namespace SaborCubano.API.Features.Restaurant.GetByID;
 
@@ -16,5 +17,8 @@ public class GetByIdRestaurantEndpoint : Endpoint<GetByIdRequest, RestaurantDTO>
         AllowAnonymous();
     }
 
-    
+     public async override Task<RestaurantDTO> HandleAsync(GetByIdRequest request ,CancellationToken ct){
+        var entity = _mediator.Send(new GetByIdRestaurantQuery(request.Id)); 
+       return await entity;
+    }
 }

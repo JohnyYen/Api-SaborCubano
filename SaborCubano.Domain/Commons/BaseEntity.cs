@@ -10,4 +10,5 @@ public abstract class BaseEntity : IModel
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id {get; set;}
+    public bool Active {get; set;}
 }

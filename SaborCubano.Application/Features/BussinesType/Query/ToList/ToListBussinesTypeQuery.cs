@@ -1,6 +1,8 @@
+using api.Models;
+
 namespace SaborCubano.Application.Features.BussinesType.Query.ToList;
 
-public record class ToListBussinesTypeQuery
+public record ToListBussinesTypeQuery : IRequest<IEnumerable<api.Models.BussinesType>>
 {
 
 }
