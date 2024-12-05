@@ -9,3 +9,4 @@ C:\Users\Johny\Desktop\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\De
 C:\Users\Johny\Desktop\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\Debug\net9.0\refint\SaborCubano.Domain.dll
 C:\Users\Johny\Desktop\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\Debug\net9.0\SaborCubano.Domain.pdb
 C:\Users\Johny\Desktop\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\Debug\net9.0\ref\SaborCubano.Domain.dll
+C:\Users\Johny\Desktop\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\Debug\net9.0\SaborCubano.Domain.csproj.AssemblyReference.cache

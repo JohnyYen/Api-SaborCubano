@@ -8,7 +8,7 @@ using SaborCubano.Infrastructure.Persistence.ModelConfiguration;
 
 namespace SaborCubano.Infrastructure.Persistence;
 
-public class ApplicationDBContext : IdentityDbContext<User, IdentityRole<int>, int>
+public class ApplicationDBContext : IdentityDbContext<User>
 {
     public virtual DbSet<Restaurant> Restaurants {get; set;} = null!;
     public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options){
