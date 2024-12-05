@@ -22,8 +22,10 @@ public class UserRepository(UserManager<User> manager) : IUserRepository
         return Task.FromResult(user);
     }
 
-    public Task<User?> FindByIdAsync(string id){
-        return _manager.FindByIdAsync(id);
-   }
+    public Task<User?> FindByIdAsync(string id) => _manager.FindByIdAsync(id);
+
+    public Task<User?> FindUser(string user_name) => _manager.FindByNameAsync(user_name);
+
+    public Task<bool> CheckPassword(User user, string password) => _manager.CheckPasswordAsync(user, password);
 
 }

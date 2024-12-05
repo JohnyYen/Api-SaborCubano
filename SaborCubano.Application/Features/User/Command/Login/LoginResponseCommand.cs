@@ -1,6 +1,3 @@
 namespace SaborCubano.Application.Features.User.Command.Login;
 
-public record class LoginResponseCommand
-{
-
-}
+public record LoginResponseCommand(string id, string token);
