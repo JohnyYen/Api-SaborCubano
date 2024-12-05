@@ -4,5 +4,5 @@ namespace SaborCubano.Application.Interfaces;
 
 public interface ITokenGenerator
 {
-    string GenerateJwt(Guid id, string user_name, string email);
+    string GenerateJwt(string id, string user_name, string email);
 }

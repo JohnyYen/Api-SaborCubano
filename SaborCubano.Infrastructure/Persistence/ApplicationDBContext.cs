@@ -1,13 +1,14 @@
 using System;
 using System.Reflection;
 using api.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using SaborCubano.Infrastructure.Persistence.ModelConfiguration;
 
 namespace SaborCubano.Infrastructure.Persistence;
 
-public class ApplicationDBContext : IdentityDbContext<User>
+public class ApplicationDBContext : IdentityDbContext<User, IdentityRole<int>, int>
 {
     public virtual DbSet<Restaurant> Restaurants {get; set;} = null!;
     public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options){

@@ -1,5 +1,7 @@
 using System;
+using api.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SaborCubano.Application.Interfaces;
@@ -16,12 +18,18 @@ public static class InfrastructureService
 
         services
         .AddPersistence(builder)
-        .AddAuthentication(builder);
+        .AddAuthentication(builder)
+        .AddIdentity();
        
        return services;
     }
 
+    public static IServiceCollection AddIdentity(this IServiceCollection services){
+        services.AddIdentity<User, IdentityRole<int>>()
+        .AddEntityFrameworkStores<ApplicationDBContext>();
 
+        return services;
+    }
     public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration builder){
          
          services.AddDbContext<ApplicationDBContext>(options => {

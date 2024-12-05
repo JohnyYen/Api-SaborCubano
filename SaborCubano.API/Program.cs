@@ -23,6 +23,7 @@ app.UseHttpsRedirection();
 
 app.UseFastEndpoints().UseSwaggerUi();
 app.UseSwaggerGen();
+app.UseSwaggerUi();
 
 app.UseAuthorization();
 

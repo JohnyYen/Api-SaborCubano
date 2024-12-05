@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using SaborCubano.Domain;
 using SaborCubano.Domain.Commons;
 namespace api.Models
 {
