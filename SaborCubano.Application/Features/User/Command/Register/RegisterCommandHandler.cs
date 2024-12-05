@@ -11,8 +11,7 @@ public record class RegisterCommandHandler(ITokenGenerator tokenGenerator
     private readonly IUserRepository _repo = repo;
     private readonly ITokenGenerator _generator = tokenGenerator;
     public async Task<RegisterResponseCommand> Handle(RegisterRequestCommand request, CancellationToken cancellationToken)
-    {
-        
+    { 
         var user = await _repo.CreateAppUserAsync(request.toModel());
 
         string token = _generator.GenerateJwt(user.Id, user.User_Name, user.Email!);

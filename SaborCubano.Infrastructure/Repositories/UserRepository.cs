@@ -18,6 +18,7 @@ public class UserRepository(UserManager<User> manager) : IUserRepository
         if(_manager.FindByEmailAsync(user.Email!) is not null)
             throw new Exception("USER_EXIST");
 
+        _manager.CreateAsync(user, user.Password);
         return Task.FromResult(user);
     }
 
