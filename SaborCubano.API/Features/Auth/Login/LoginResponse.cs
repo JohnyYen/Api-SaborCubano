@@ -2,7 +2,4 @@ using System;
 
 namespace SaborCubano.API.Features.Auth.Login;
 
-public class LoginResponse
-{
-
-}
+public record LoginResponse(string id, string token);

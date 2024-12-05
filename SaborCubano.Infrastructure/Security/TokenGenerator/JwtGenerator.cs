@@ -12,7 +12,7 @@ namespace SaborCubano.Infrastructure.Security.TokenGenerator;
 public class JwtGenerator(IOptions<JwtSettings> jwtSettings) : ITokenGenerator
 {
     private readonly JwtSettings _jwtSettings = jwtSettings.Value;
-    public string GenerateJwt(string id, string user_name, string email)
+    public string GenerateJwt(string id, string user_name, string? email)
     {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Secret));
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
