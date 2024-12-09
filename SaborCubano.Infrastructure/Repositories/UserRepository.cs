@@ -1,9 +1,7 @@
 using System;
 using System.Linq.Expressions;
 using api.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
-using SaborCubano.Application.Commons;
 using SaborCubano.Application.Interfaces;
 using SaborCubano.Infrastructure.Persistence;
 

@@ -8,7 +8,7 @@ public class LoginEndpoint(IMediator mediator) : Endpoint<LoginRequest, LoginRes
     private readonly IMediator _mediator = mediator;
      public override void Configure()
     {
-        Get("api/auth/login");
+        Post("api/auth/login");
         AllowAnonymous();
     }
 

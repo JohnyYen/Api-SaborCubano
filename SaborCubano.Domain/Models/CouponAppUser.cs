@@ -11,6 +11,6 @@ public class CouponAppUser : BaseEntity
     public Coupon Coupon {get; set;} = null!;
 
     [ForeignKey(nameof(AppUser))]
-    public int Id_AppUser {get; set;}
+    public string Id_AppUser {get; set;} = null!;
     public AppUser AppUser {get; set;} = null!;
 }

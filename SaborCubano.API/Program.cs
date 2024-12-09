@@ -2,6 +2,7 @@ using FastEndpoints.Swagger;
 using SaborCubano.Application;
 using SaborCubano.Infrastructure;
 using SaborCubano.API;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -21,9 +22,7 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-app.UseFastEndpoints().UseSwaggerUi();
-app.UseSwaggerGen();
-app.UseSwaggerUi();
+app.UseFastEndpoints().UseSwaggerGen();
 
 app.UseAuthorization();
 

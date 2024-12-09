@@ -25,7 +25,7 @@ public static class InfrastructureService
     }
 
     public static IServiceCollection AddIdentity(this IServiceCollection services){
-        services.AddIdentity<User, IdentityRole<int>>()
+        services.AddIdentity<User, IdentityRole>()
         .AddEntityFrameworkStores<ApplicationDBContext>();
 
         return services;
@@ -42,6 +42,7 @@ public static class InfrastructureService
         services.AddScoped<IFoodTypesRepository, FoodTypesRepository>();
         services.AddScoped<IBussinesRepository, BussinesRepository>();
         services.AddScoped<ICookTypeRepository, CookTypeRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
         
         return services;
     }

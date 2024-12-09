@@ -36,7 +36,7 @@ namespace api.Models
         public bool? Is_Reservas {get; set;}
 
         [ForeignKey(nameof(Chief))]
-        public int? Id_User {get; set;}
+        public string? Id_User {get; set;}
         public RestaurantChief? Chief {get; set;}
         
         public ICollection<RestaurantBussinesType>? BussinesTypes {get; set;}
