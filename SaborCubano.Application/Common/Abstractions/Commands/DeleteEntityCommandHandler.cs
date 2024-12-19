@@ -9,9 +9,9 @@ public abstract class DeleteEntityCommandHandler<TModel>
 where TModel : BaseEntity
 {
     protected readonly IGenericRepository<TModel> _repo = repo;
-    public Task<TModel?> Handle(DeleteEntityCommand<TModel> request, CancellationToken ct)
+    public Task<TModel> Handle(DeleteEntityCommand<TModel> request, CancellationToken ct)
     {
         var entity = _repo.DeleteAsync(request.Id);
-        return entity;
+        return entity!;
     }
 }

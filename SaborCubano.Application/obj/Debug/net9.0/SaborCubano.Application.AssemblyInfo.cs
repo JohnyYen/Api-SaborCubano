@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SaborCubano.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d2497787759b5a31841702f74603649065939d94")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+272953ecfc00398b76d239d501f35fcfb5f600be")]
 [assembly: System.Reflection.AssemblyProductAttribute("SaborCubano.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SaborCubano.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
