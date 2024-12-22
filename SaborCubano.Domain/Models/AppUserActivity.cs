@@ -10,7 +10,7 @@ namespace SaborCubano.Domain.Models
     public class AppUserActivity : BaseEntity
     {
         [ForeignKey(nameof(AppUser))]
-        public int Id_User {get; set;}
+        public string Id_User {get; set;} = null!;
         public AppUser AppUser {get; set;} = null!;
 
         [ForeignKey(nameof(Activity))]

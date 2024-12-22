@@ -13,8 +13,6 @@ namespace api.Models
     [Table("Coupon")]
     public class Coupon : BaseEntity 
     {
-        [ForeignKey(nameof(AppUser))]
-        public int Id_User {get; set;}
         public ICollection<CouponAppUser>? AppUsers {get; set;} = null!;
 
         [ForeignKey(nameof(Restaurant))]

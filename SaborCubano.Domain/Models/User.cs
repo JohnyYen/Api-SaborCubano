@@ -4,13 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-using SaborCubano.Domain;
+using Microsoft.AspNetCore.Identity;
+using SaborCubano.Domain.Commons;
 namespace api.Models
 {
     [Table("User")]
-    public abstract class User : BaseEntity
+    public abstract class User : IdentityUser
     {
-        public string Email { get; set; } = String.Empty;
         public string User_Name { get; set; } = String.Empty;
         public string Password { get; set; } = String.Empty;
 
