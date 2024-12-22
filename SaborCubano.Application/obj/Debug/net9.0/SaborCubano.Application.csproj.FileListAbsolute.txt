@@ -13,3 +13,4 @@ C:\Users\Johny\Desktop\SaborCubano\SaborCubano-Backend\SaborCubano.Application\o
 C:\Users\Johny\Desktop\SaborCubano\SaborCubano-Backend\SaborCubano.Application\obj\Debug\net9.0\refint\SaborCubano.Application.dll
 C:\Users\Johny\Desktop\SaborCubano\SaborCubano-Backend\SaborCubano.Application\obj\Debug\net9.0\SaborCubano.Application.pdb
 C:\Users\Johny\Desktop\SaborCubano\SaborCubano-Backend\SaborCubano.Application\obj\Debug\net9.0\ref\SaborCubano.Application.dll
+C:\Users\Johny\Desktop\SaborCubano\SaborCubano-Backend\SaborCubano.Application\obj\Debug\net9.0\SaborCubano.Application.sourcelink.json
