@@ -23,7 +23,7 @@ public static class UserConfiguration
 
 
         builder.Entity<User>()
-            .Property(e => e.User_Name)
+            .Property(e => e.UserName)
             .HasMaxLength(25);
         
         return builder;

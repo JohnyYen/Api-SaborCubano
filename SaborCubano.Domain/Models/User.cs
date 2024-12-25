@@ -11,7 +11,7 @@ namespace api.Models
     [Table("User")]
     public abstract class User : IdentityUser
     {
-        public string User_Name { get; set; } = String.Empty;
+        
         public string Password { get; set; } = String.Empty;
 
     }

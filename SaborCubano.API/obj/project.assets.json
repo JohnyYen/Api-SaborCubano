@@ -6371,11 +6371,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Johny\\Desktop\\SaborCubano\\SaborCubano-Backend\\SaborCubano.API\\SaborCubano.API.csproj",
+      "projectUniqueName": "C:\\Users\\Johny\\Desktop\\Projects\\Work\\SaborCubano\\SaborCubano-Backend\\SaborCubano.API\\SaborCubano.API.csproj",
       "projectName": "SaborCubano.API",
-      "projectPath": "C:\\Users\\Johny\\Desktop\\SaborCubano\\SaborCubano-Backend\\SaborCubano.API\\SaborCubano.API.csproj",
+      "projectPath": "C:\\Users\\Johny\\Desktop\\Projects\\Work\\SaborCubano\\SaborCubano-Backend\\SaborCubano.API\\SaborCubano.API.csproj",
       "packagesPath": "C:\\Users\\Johny\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Johny\\Desktop\\SaborCubano\\SaborCubano-Backend\\SaborCubano.API\\obj\\",
+      "outputPath": "C:\\Users\\Johny\\Desktop\\Projects\\Work\\SaborCubano\\SaborCubano-Backend\\SaborCubano.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Johny\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -6390,11 +6390,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\Johny\\Desktop\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Application\\SaborCubano.Application.csproj": {
-              "projectPath": "C:\\Users\\Johny\\Desktop\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Application\\SaborCubano.Application.csproj"
+            "C:\\Users\\Johny\\Desktop\\Projects\\Work\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Application\\SaborCubano.Application.csproj": {
+              "projectPath": "C:\\Users\\Johny\\Desktop\\Projects\\Work\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Application\\SaborCubano.Application.csproj"
             },
-            "C:\\Users\\Johny\\Desktop\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Infrastructure\\SaborCubano.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Johny\\Desktop\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Infrastructure\\SaborCubano.Infrastructure.csproj"
+            "C:\\Users\\Johny\\Desktop\\Projects\\Work\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Infrastructure\\SaborCubano.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Johny\\Desktop\\Projects\\Work\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Infrastructure\\SaborCubano.Infrastructure.csproj"
             }
           }
         }
@@ -6456,5 +6456,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error al obtener los datos de vulnerabilidad del paquete: No se puede cargar el índice de servicio del origen https://api.nuget.org/v3/index.json."
+    }
+  ]
 }

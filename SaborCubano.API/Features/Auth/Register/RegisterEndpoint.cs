@@ -19,7 +19,7 @@ public class RegisterEndpoint(IMediator mediator) : Endpoint<RegisterRequest, Re
         request.password,
         request.email,
         request.city));
-
+        Console.WriteLine(response);
         return new RegisterResponse(response.Id, response.Token);
     }
 }

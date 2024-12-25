@@ -7,19 +7,23 @@ using SaborCubano.Infrastructure.Persistence;
 
 namespace SaborCubano.Infrastructure.Repositories;
 
-public class UserRepository(UserManager<User> manager) : IUserRepository
+public class UserRepository(UserManager<User> manager, ApplicationDBContext context) : IUserRepository
 {
    private readonly UserManager<User> _manager = manager;
+   private readonly ApplicationDBContext _context = context;
 
-    public Task<User> CreateAppUserAsync(User user = null!)
+    public async Task<User> CreateAppUserAsync(AppUser user = null!)
     {
-        if(_manager.FindByEmailAsync(user.Email!) is not null)
+        var searchingUser = await _manager.FindByEmailAsync(user.Email!);
+        if(searchingUser is not null)
             throw new Exception("USER_EXIST");
 
-        _manager.CreateAsync(user, user.Password);
-        return Task.FromResult(user);
+        var result = await _manager.CreateAsync(user, user.Password);
+        // Console.WriteLine(user.Password);
+        // Console.WriteLine(result);
+        return user;
     }
-
+    public Task<City?> FindCity(string name) => _context.GetDbSet<City>().FirstOrDefaultAsync(c => c.Name == name);
     public Task<User?> FindByIdAsync(string id) => _manager.FindByIdAsync(id);
 
     public Task<User?> FindUser(string user_name) => _manager.FindByNameAsync(user_name);

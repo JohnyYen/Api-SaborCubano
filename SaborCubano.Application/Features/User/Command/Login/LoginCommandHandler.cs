@@ -18,7 +18,7 @@ public class LoginCommandHandler(IUserRepository repo
         if(!(await _repo.CheckPassword(user, request.Password)))
             throw new Exception("PASSWORD_NOT_EQUALS");
 
-        string token = _generator.GenerateJwt(user.Id, user.User_Name, user.Email);
+        string token = _generator.GenerateJwt(user.Id, user.UserName!, user.Email!);
         return new LoginResponseCommand(user.Id, token);
     }
 }

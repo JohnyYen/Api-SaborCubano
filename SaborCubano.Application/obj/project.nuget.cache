@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2+PP1zXiAA0=",
+  "dgSpecHash": "uMU+nam1jRw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Johny\\Desktop\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Application\\SaborCubano.Application.csproj",
+  "projectFilePath": "C:\\Users\\Johny\\Desktop\\Projects\\Work\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Application\\SaborCubano.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Johny\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\Johny\\.nuget\\packages\\mediatr\\12.4.1\\mediatr.12.4.1.nupkg.sha512",
@@ -26,5 +26,12 @@
     "C:\\Users\\Johny\\.nuget\\packages\\microsoft.extensions.options\\9.0.0\\microsoft.extensions.options.9.0.0.nupkg.sha512",
     "C:\\Users\\Johny\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.0\\microsoft.extensions.primitives.9.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error al obtener los datos de vulnerabilidad del paquete: No se puede cargar el índice de servicio del origen https://api.nuget.org/v3/index.json."
+    }
+  ]
 }
