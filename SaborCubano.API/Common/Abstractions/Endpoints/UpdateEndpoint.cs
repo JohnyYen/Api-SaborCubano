@@ -7,7 +7,7 @@ namespace SaborCubano.API.Common.Abstractions.Endpoints;
 public class UpdateEndpoint<TRequest, TResponse, TModel>
 (IMediator mediator, string route) : Endpoint<TRequest, TResponse>
 where TRequest : UpdateEntityCommandDto<TModel>,new()
-where TResponse : QueryDto<TModel>, new()
+where TResponse : ResponseDto<TModel>, new()
 where TModel : BaseEntity
 {
     protected readonly IMediator _mediator = mediator;

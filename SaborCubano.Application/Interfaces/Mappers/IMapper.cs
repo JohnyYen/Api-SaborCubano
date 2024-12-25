@@ -9,5 +9,5 @@ public interface IMapper<TModel> where TModel : BaseEntity
 {
     TModel toModel(CreateEntityCommandDto<TModel> dto);
     TModel toModel(UpdateEntityCommandDto<TModel> dto);
-    QueryDto<TModel> toDto (TModel model);
+    ResponseDto<TModel> toDto (TModel model);
 }

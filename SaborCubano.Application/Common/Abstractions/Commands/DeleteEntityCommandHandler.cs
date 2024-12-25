@@ -8,12 +8,12 @@ namespace SaborCubano.Application.Common.Abstractions.Commands;
 
 public abstract class DeleteEntityCommandHandler<TModel>
 (IGenericRepository<TModel> repo, IMapper<TModel> mapper)
-:IRequestHandler<DeleteEntityCommandDto<TModel>, QueryDto<TModel>>
+:IRequestHandler<DeleteEntityCommandDto<TModel>, ResponseDto<TModel>>
 where TModel : BaseEntity
 {
     protected readonly IGenericRepository<TModel> _repo = repo;
     protected readonly IMapper<TModel> _mapper = mapper;
-    public async Task<QueryDto<TModel>> Handle(DeleteEntityCommandDto<TModel> request, CancellationToken ct)
+    public async Task<ResponseDto<TModel>> Handle(DeleteEntityCommandDto<TModel> request, CancellationToken ct)
     {
         var entity = await _repo.DeleteAsync(request.Id);
         return _mapper.toDto(entity!);

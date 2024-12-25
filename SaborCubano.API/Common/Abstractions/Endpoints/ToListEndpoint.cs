@@ -7,7 +7,7 @@ namespace SaborCubano.API.Common.Abstractions.Endpoints;
 public abstract class ToListEndpoint<TResponse, TMediator, TModel>
 (IMediator mediator, string route) : EndpointWithoutRequest<IEnumerable<TResponse>>
 where TMediator : ToListEntityQueryDto<TModel>, new()
-where TResponse : QueryDto<TModel>, new()
+where TResponse : ResponseDto<TModel>, new()
 where TModel : BaseEntity
 {
     protected readonly IMediator _mediator = mediator;

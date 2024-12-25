@@ -4,7 +4,7 @@ using SaborCubano.Domain;
 
 namespace SaborCubano.Application.Common.Abstractions.DTOs;
 
-public class UpdateEntityCommandDto<TModel>:IRequest<QueryDto<TModel>?>, IDto
+public class UpdateEntityCommandDto<TModel>:IRequest<ResponseDto<TModel>?>, IDto
 where TModel : BaseEntity
 {
 

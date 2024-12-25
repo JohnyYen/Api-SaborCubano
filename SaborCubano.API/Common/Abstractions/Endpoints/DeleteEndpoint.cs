@@ -8,7 +8,7 @@ namespace SaborCubano.API.Common.Abstractions.Endpoints;
 public abstract class DeleteEndpoint<TRequest, TResponse, TMediator, TModel>
 (IMediator mediator, string route) : Endpoint<TRequest, TResponse>
 where TRequest : GetByIdRequest,new()
-where TResponse : QueryDto<TModel>, new()
+where TResponse : ResponseDto<TModel>, new()
 where TMediator : DeleteEntityCommandDto<TModel>, new()
 where TModel : BaseEntity
 {
