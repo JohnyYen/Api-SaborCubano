@@ -1,18 +1,24 @@
 using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using SaborCubano.Application.Common.Abstractions.DTOs;
 using SaborCubano.Application.Interfaces;
+using SaborCubano.Application.Interfaces.Mappers;
 using SaborCubano.Domain;
 
 namespace SaborCubano.Application.Common.Abstractions.Commands;
 
 public class UpdateEntityCommandHandler<TModel>
-(IGenericRepository<TModel> repo):IRequestHandler<UpdateEntityCommandDto<TModel>, TModel>
-where TModel : BaseEntity
+(IGenericRepository<TModel> repo, IMapper<TModel> mapper)
+:IRequestHandler<UpdateEntityCommandDto<TModel>, QueryDto<TModel>?>
+where TModel : BaseEntity, IModel
 {
     private readonly IGenericRepository<TModel> _repo = repo;
-
-    public Task<TModel> Handle(UpdateEntityCommandDto<TModel> request, CancellationToken cancellationToken)
+    private readonly IMapper<TModel> _mapper = mapper;
+    public async Task<QueryDto<TModel>?> Handle(UpdateEntityCommandDto<TModel> request, CancellationToken cancellationToken)
     {
-        throw null;
+        var entity = _mapper.toModel(request);
+        var model = await _repo.UpdateAsync(entity) ?? null;
+        
+        return _mapper.toDto(model);
     }
 }

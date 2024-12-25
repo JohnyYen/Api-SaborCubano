@@ -1,20 +1,23 @@
 using System;
 using SaborCubano.Application.Common.Abstractions.DTOs;
 using SaborCubano.Application.Interfaces;
+using SaborCubano.Application.Interfaces.Mappers;
 using SaborCubano.Domain;
 
 namespace SaborCubano.Application.Common.Abstractions.Queries;
 
 public class GetByIdEntityQueryHandler<TModel>
-(IGenericRepository<TModel> repo): IRequestHandler<GetByIdEntityQuery<TModel>, TModel>
+(IGenericRepository<TModel> repo, IMapper<TModel> mapper)
+:IRequestHandler<GetByIdEntityQuery<TModel>, QueryDto<TModel>?>
 where TModel : BaseEntity
 {
 
     protected readonly IGenericRepository<TModel> _repo = repo;
-    public Task<TModel> Handle(GetByIdEntityQuery<TModel> request, CancellationToken cancellationToken)
+    protected readonly IMapper<TModel> _mapper = mapper;
+    public async Task<QueryDto<TModel>?> Handle(GetByIdEntityQuery<TModel> request, CancellationToken cancellationToken)
     {
-        var entity = _repo.GetByIdAsync(request.Id);
+        var entity = await _repo.GetByIdAsync(request.Id);
 
-        return entity!;
+        return _mapper.toDto(entity);
     }
 }
