@@ -11,6 +11,6 @@ public class ToListBussinesTypeEndpoint(IMediator mediator)
 {
     public override void AddConfiguration()
     {
-        Tags("Bussines Types");
+        Description(x => x.WithTags("Bussines Types"));
     }
 }

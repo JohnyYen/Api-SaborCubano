@@ -11,6 +11,6 @@ public class DeleteBussinesTypeEndpoint(IMediator mediator)
 {
     public override void AddConfiguration()
     {
-        Tags("Bussines_Types");
+        Description(x => x.WithTags("Bussines Types"));
     }
 }
