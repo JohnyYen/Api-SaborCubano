@@ -1,1 +1,11 @@
 global using MediatR;
+global using ServiceModel = api.Models.Service;
+global using RestaurantModel = api.Models.Restaurant;
+global using ActivityModel = api.Models.Activity;
+global using CityModel = api.Models.City;
+global using ProvinceModel = api.Models.Province;
+global using FoodTypeModel = api.Models.FoodType;
+global using CookTypeModel = api.Models.CookType;
+global using IngredientModel = api.Models.Ingredient;
+global using PlateModel = api.Models.Plate;
+global using CouponModel = api.Models.Coupon;

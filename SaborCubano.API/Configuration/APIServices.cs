@@ -11,7 +11,7 @@ public static class APIServices
         services.AddEndpointsApiExplorer();
         services.AddProblemDetails();
         services.AddFastEndpoints()
-        .SwaggerDocument();
+        .SwaggerDocument(o => o.AutoTagPathSegmentIndex = 0);
 
         return services;
     }

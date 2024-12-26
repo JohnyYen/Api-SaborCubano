@@ -32,7 +32,7 @@ public static class InfrastructureService
     }
     public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration builder){
          
-         services.AddDbContext<ApplicationDBContext>(options => {
+        services.AddDbContext<ApplicationDBContext>(options => {
             options.UseNpgsql(builder.GetConnectionString("DefaultConnection"));
         });
 

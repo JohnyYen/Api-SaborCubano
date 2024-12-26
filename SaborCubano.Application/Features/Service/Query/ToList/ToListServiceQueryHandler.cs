@@ -1,21 +1,14 @@
 using System;
 using api.Models;
+using SaborCubano.Application.Common.Abstractions.Queries;
+using SaborCubano.Application.Common.Mappers;
 using SaborCubano.Application.Interfaces;
 
-namespace SaborCubano.Application.Features.Service.Query.ToList;
+namespace SaborCubano.Application.Features.Service.Query;
 
-public class ToListServiceQueryHandler : IRequestHandler<ToListServiceQueryRequest, IEnumerable<api.Models.Service>>
+public class ToListServiceQueryHandler
+(IServiceRepository repo, ServiceMapper mapper)
+:ToListEntityQueryHandler<ServiceModel, ToListServiceQuery>(repo, mapper)
 {
-    private readonly IServiceRepository _repo = null!;
 
-    public ToListServiceQueryHandler(IServiceRepository repo){
-        _repo = repo;
-    }
-
-    public Task<IEnumerable<api.Models.Service>> Handle(ToListServiceQueryRequest request, CancellationToken cancellationToken)
-    {
-       var entities = _repo.GetAllAsync().ToList().AsEnumerable();
-
-       return Task.FromResult(entities);
-    }
 }

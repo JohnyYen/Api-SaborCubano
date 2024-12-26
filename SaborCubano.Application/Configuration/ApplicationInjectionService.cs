@@ -1,5 +1,7 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
+using SaborCubano.Application.Common.Mappers;
+using SaborCubano.Application.Interfaces.Mappers;
 
 namespace SaborCubano.Application;
 
@@ -10,6 +12,13 @@ public static class ApplicationInjectionService
             options.RegisterServicesFromAssembly(typeof(ApplicationInjectionService).Assembly);
         });
 
+        services.AddMappers();
+        return services;
+    }
+
+    public static IServiceCollection AddMappers(this IServiceCollection services){
+
+        services.AddTransient<ServiceMapper>();
         return services;
     }
 }

@@ -11,6 +11,7 @@ public class RegisterEndpoint(IMediator mediator) : Endpoint<RegisterRequest, Re
     {
         Post("api/auth/register");
         AllowAnonymous();
+        Description(x => x.WithTags("Auth"));
     }
 
     public async override Task<RegisterResponse> ExecuteAsync(RegisterRequest request, CancellationToken ct){

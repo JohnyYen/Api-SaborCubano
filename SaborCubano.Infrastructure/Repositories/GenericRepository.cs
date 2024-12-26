@@ -26,7 +26,7 @@ public class GenericRepository<TModel> : IGenericRepository<TModel> where TModel
     {
         var entity = await _context.GetDbSet<TModel>().FirstAsync(r => r.Id == id);
 
-        if(entity != null)
+        if(entity == null)
             return null;
 
         _context.GetDbSet<TModel>().Remove(entity!);
@@ -55,13 +55,11 @@ public class GenericRepository<TModel> : IGenericRepository<TModel> where TModel
         return await _context.GetDbSet<TModel>().FindAsync(id);
     }
 
-    public async Task<TModel?> UpdateAsync(GenericDTO<TModel> entityDto, int id)
+    public async Task<TModel?> UpdateAsync(TModel model)
     {
-        var entity = await _context.GetDbSet<TModel>().FindAsync(id);
-
-        if(entity == null)
-            return null;
+        var entity = _context.GetDbSet<TModel>().Update(model).Entity ?? null;
         
-        return null;
+        await _context.SaveChangesAsync();
+        return entity;
     }
 }
