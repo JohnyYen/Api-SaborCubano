@@ -19,6 +19,7 @@ public static class ApplicationInjectionService
     public static IServiceCollection AddMappers(this IServiceCollection services){
 
         services.AddTransient<ServiceMapper>();
+        services.AddTransient<BussinesTypeMapper>();
         return services;
     }
 }

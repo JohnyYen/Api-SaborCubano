@@ -1,5 +1,4 @@
 using System;
-using SaborCubano.API.Features.Restaurant.GetByID;
 using SaborCubano.Application.Common.Abstractions.DTOs;
 using SaborCubano.Domain;
 
@@ -7,7 +6,7 @@ namespace SaborCubano.API.Common.Abstractions.Endpoints;
 
 public abstract class DeleteEndpoint<TRequest, TResponse, TMediator, TModel>
 (IMediator mediator, string route) : Endpoint<TRequest, TResponse>
-where TRequest : GetByIdRequest,new()
+where TRequest : RequestGetByIdDTO,new()
 where TResponse : ResponseDto<TModel>, new()
 where TMediator : DeleteEntityCommandDto<TModel>, new()
 where TModel : BaseEntity

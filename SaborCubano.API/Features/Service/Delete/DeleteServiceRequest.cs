@@ -1,9 +1,9 @@
 using System;
-using SaborCubano.API.Features.Restaurant.GetByID;
+using SaborCubano.Application.Common.Abstractions.DTOs;
 
 namespace SaborCubano.API.Features.Service.Delete;
 
-public class DeleteServiceRequest : GetByIdRequest
+public class DeleteServiceRequest : RequestGetByIdDTO
 {
 
 }

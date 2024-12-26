@@ -1,5 +1,4 @@
 using System;
-using SaborCubano.API.Features.Restaurant.GetByID;
 using SaborCubano.Application.Common.Abstractions;
 using SaborCubano.Application.Common.Abstractions.DTOs;
 using SaborCubano.Domain;
@@ -8,7 +7,7 @@ namespace SaborCubano.API.Common.Abstractions.Endpoints;
 
 public abstract class GetByIdEndpoint<TRequest, TResponse, TModel, TMediator>
 (IMediator mediator, string route) : Endpoint<TRequest, TResponse>
-where TRequest : GetByIdRequest, new()
+where TRequest : RequestGetByIdDTO, new()
 where TResponse : ResponseDto<TModel>, new()
 where TModel : BaseEntity
 where TMediator : GetByIdEntityQuery<TModel>, new()
