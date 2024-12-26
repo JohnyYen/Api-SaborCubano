@@ -7,15 +7,16 @@ using SaborCubano.Domain;
 
 namespace SaborCubano.Application.Common.Abstractions.Commands;
 
-public abstract class CreateEntityCommandHandler<TModel>
+public abstract class CreateEntityCommandHandler<TModel, TRequest>
 (IGenericRepository<TModel> repo, IMapper<TModel> mapper)
-:IRequestHandler<CreateEntityCommandDto<TModel>, ResponseDto<TModel>>
+:IRequestHandler<TRequest, ResponseDto<TModel>>
 where TModel : BaseEntity
+where TRequest : CreateEntityCommandDto<TModel>
 {
     private readonly IGenericRepository<TModel> _repo = repo;
     private readonly IMapper<TModel> _mapper = mapper;
 
-    public async Task<ResponseDto<TModel>> Handle(CreateEntityCommandDto<TModel> request, CancellationToken cancellationToken)
+    public async Task<ResponseDto<TModel>> Handle(TRequest request, CancellationToken cancellationToken)
     {
         var entity = _mapper.toModel(request);
         var model = await _repo.CreateAsync(entity);

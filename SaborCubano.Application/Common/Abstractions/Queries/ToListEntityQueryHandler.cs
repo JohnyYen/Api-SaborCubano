@@ -6,17 +6,19 @@ using SaborCubano.Domain;
 
 namespace SaborCubano.Application.Common.Abstractions.Queries;
 
-public abstract class ToListEntityQueryHandler<TModel>
+public abstract class ToListEntityQueryHandler<TModel, TRequest>
 (IGenericRepository<TModel> repo, IMapper<TModel> mapper) 
-:IRequestHandler<ToListEntityQueryDto<TModel>, IEnumerable<QueryDto<TModel>>>
+:IRequestHandler<TRequest, IEnumerable<ResponseDto<TModel>>>
 where TModel : BaseEntity
+where TRequest : ToListEntityQueryDto<TModel>
 {
     protected readonly IGenericRepository<TModel> _repo = repo;
     private readonly IMapper<TModel> _mapper = mapper;
 
-    public Task<IEnumerable<QueryDto<TModel>>> Handle(ToListEntityQueryDto<TModel> request, CancellationToken cancellationToken)
+    public Task<IEnumerable<ResponseDto<TModel>>> Handle(TRequest request, CancellationToken cancellationToken)
     {
-        var entities = _repo.GetAllAsync().ToList().AsEnumerable().Select(x => _mapper.toDto(x));
+        var entities = _repo.GetAllAsync().ToList().AsEnumerable().Select(_mapper.toDto);
+        Console.WriteLine(entities);
         return Task.FromResult(entities);
     }
 }

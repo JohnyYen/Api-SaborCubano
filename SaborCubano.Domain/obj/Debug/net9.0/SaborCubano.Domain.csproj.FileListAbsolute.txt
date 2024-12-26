@@ -11,3 +11,16 @@ C:\Users\Johny\Desktop\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\De
 C:\Users\Johny\Desktop\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\Debug\net9.0\refint\SaborCubano.Domain.dll
 C:\Users\Johny\Desktop\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\Debug\net9.0\SaborCubano.Domain.pdb
 C:\Users\Johny\Desktop\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\Debug\net9.0\ref\SaborCubano.Domain.dll
+C:\Users\Johny\Desktop\Projects\Work\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\bin\Debug\net9.0\SaborCubano.Domain.deps.json
+C:\Users\Johny\Desktop\Projects\Work\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\bin\Debug\net9.0\SaborCubano.Domain.dll
+C:\Users\Johny\Desktop\Projects\Work\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\bin\Debug\net9.0\SaborCubano.Domain.pdb
+C:\Users\Johny\Desktop\Projects\Work\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\Debug\net9.0\SaborCubano.Domain.csproj.AssemblyReference.cache
+C:\Users\Johny\Desktop\Projects\Work\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\Debug\net9.0\SaborCubano.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Johny\Desktop\Projects\Work\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\Debug\net9.0\SaborCubano.Domain.AssemblyInfoInputs.cache
+C:\Users\Johny\Desktop\Projects\Work\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\Debug\net9.0\SaborCubano.Domain.AssemblyInfo.cs
+C:\Users\Johny\Desktop\Projects\Work\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\Debug\net9.0\SaborCubano.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Johny\Desktop\Projects\Work\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\Debug\net9.0\SaborCubano.Domain.sourcelink.json
+C:\Users\Johny\Desktop\Projects\Work\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\Debug\net9.0\SaborCubano.Domain.dll
+C:\Users\Johny\Desktop\Projects\Work\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\Debug\net9.0\refint\SaborCubano.Domain.dll
+C:\Users\Johny\Desktop\Projects\Work\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\Debug\net9.0\SaborCubano.Domain.pdb
+C:\Users\Johny\Desktop\Projects\Work\SaborCubano\SaborCubano-Backend\SaborCubano.Domain\obj\Debug\net9.0\ref\SaborCubano.Domain.dll

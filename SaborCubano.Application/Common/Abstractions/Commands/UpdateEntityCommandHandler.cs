@@ -7,18 +7,21 @@ using SaborCubano.Domain;
 
 namespace SaborCubano.Application.Common.Abstractions.Commands;
 
-public class UpdateEntityCommandHandler<TModel>
+public class UpdateEntityCommandHandler<TModel, TRequest>
 (IGenericRepository<TModel> repo, IMapper<TModel> mapper)
-:IRequestHandler<UpdateEntityCommandDto<TModel>, ResponseDto<TModel>?>
+:IRequestHandler<TRequest, ResponseDto<TModel>?>
 where TModel : BaseEntity, IModel
+where TRequest : UpdateEntityCommandDto<TModel>
 {
     private readonly IGenericRepository<TModel> _repo = repo;
     private readonly IMapper<TModel> _mapper = mapper;
-    public async Task<ResponseDto<TModel>?> Handle(UpdateEntityCommandDto<TModel> request, CancellationToken cancellationToken)
+    public async Task<ResponseDto<TModel>?> Handle(TRequest request, CancellationToken cancellationToken)
     {
         var entity = _mapper.toModel(request);
         var model = await _repo.UpdateAsync(entity) ?? null;
         
-        return _mapper.toDto(model!);
+        if(model is null) return null;
+        
+        return _mapper.toDto(model);
     }
 }
