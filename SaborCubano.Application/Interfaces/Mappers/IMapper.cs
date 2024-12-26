@@ -8,6 +8,6 @@ namespace SaborCubano.Application.Interfaces.Mappers;
 public interface IMapper<TModel> where TModel : BaseEntity
 {
     TModel toModel(CreateEntityCommandDto<TModel> dto);
-    TModel toModel(UpdateEntityCommandDto<TModel> dto);
+    TModel toModel(UpdateEntityCommandDto<TModel> dto, BaseEntity model);
     ResponseDto<TModel> toDto (TModel model);
 }

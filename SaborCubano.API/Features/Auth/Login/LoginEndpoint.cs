@@ -10,6 +10,7 @@ public class LoginEndpoint(IMediator mediator) : Endpoint<LoginRequest, LoginRes
     {
         Post("api/auth/login");
         AllowAnonymous();
+        Description(x => x.WithTags("Auth"));
     }
 
     public async override Task<LoginResponse> ExecuteAsync(LoginRequest request,CancellationToken ct){

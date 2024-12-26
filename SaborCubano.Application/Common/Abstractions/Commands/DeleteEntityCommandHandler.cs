@@ -18,6 +18,8 @@ where TRequest : DeleteEntityCommandDto<TModel>
     {
         var entity = await _repo.DeleteAsync(request.Id);
 
+        if(entity is null)
+            throw new Exception("ENTITY_NOT_FOUND");
         return _mapper.toDto(entity!);
     }
 }

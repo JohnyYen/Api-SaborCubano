@@ -20,6 +20,9 @@ where TRequest : CreateEntityCommandDto<TModel>
     {
         var entity = _mapper.toModel(request);
         var model = await _repo.CreateAsync(entity);
+
+        Console.WriteLine(model.GetType());
+
         return _mapper.toDto(model);
     }
 }

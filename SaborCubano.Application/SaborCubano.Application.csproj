@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Common\Utils\" />
     <Folder Include="Features\Restaurants\Command\" />
     <Folder Include="Features\Restaurants\Command\Create\" />
     <Folder Include="Features\Restaurants\Command\Delete\" />
