@@ -28,6 +28,46 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AspNetRoles",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "text", nullable: false),
+                    Name = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
+                    NormalizedName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetRoles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUsers",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "text", nullable: false),
+                    Password = table.Column<string>(type: "text", nullable: false),
+                    UserName = table.Column<string>(type: "character varying(25)", maxLength: 25, nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(type: "boolean", nullable: false),
+                    PasswordHash = table.Column<string>(type: "text", nullable: true),
+                    SecurityStamp = table.Column<string>(type: "text", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "text", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "text", nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "boolean", nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(type: "boolean", nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
+                    LockoutEnabled = table.Column<bool>(type: "boolean", nullable: false),
+                    AccessFailedCount = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "BussinesType",
                 columns: table => new
                 {
@@ -112,27 +152,143 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Email = table.Column<string>(type: "text", nullable: false),
-                    User_Name = table.Column<string>(type: "character varying(25)", maxLength: 25, nullable: false),
-                    Password = table.Column<string>(type: "text", nullable: false),
-                    User_Type = table.Column<string>(type: "character varying(5)", maxLength: 5, nullable: false),
-                    Gallery = table.Column<byte[][]>(type: "bytea[]", nullable: true),
-                    AppUserId = table.Column<int>(type: "integer", nullable: true),
-                    Active = table.Column<bool>(type: "boolean", nullable: false)
+                    RoleId = table.Column<string>(type: "text", nullable: false),
+                    ClaimType = table.Column<string>(type: "text", nullable: true),
+                    ClaimValue = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.Id);
+                    table.PrimaryKey("PK_AspNetRoleClaims", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_User_User_AppUserId",
-                        column: x => x.AppUserId,
-                        principalTable: "User",
-                        principalColumn: "Id");
+                        name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Administrator",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Administrator", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Administrator_AspNetUsers_Id",
+                        column: x => x.Id,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserClaims",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    UserId = table.Column<string>(type: "text", nullable: false),
+                    ClaimType = table.Column<string>(type: "text", nullable: true),
+                    ClaimValue = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserClaims_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserLogins",
+                columns: table => new
+                {
+                    LoginProvider = table.Column<string>(type: "text", nullable: false),
+                    ProviderKey = table.Column<string>(type: "text", nullable: false),
+                    ProviderDisplayName = table.Column<string>(type: "text", nullable: true),
+                    UserId = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserLogins_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserRoles",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(type: "text", nullable: false),
+                    RoleId = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserTokens",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(type: "text", nullable: false),
+                    LoginProvider = table.Column<string>(type: "text", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Value = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserTokens_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RestaurantChief",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RestaurantChief", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RestaurantChief_AspNetUsers_Id",
+                        column: x => x.Id,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -157,28 +313,32 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AppUserActivity",
+                name: "AppUser",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Id_User = table.Column<int>(type: "integer", nullable: false),
-                    Id_Activity = table.Column<int>(type: "integer", nullable: false),
-                    Active = table.Column<bool>(type: "boolean", nullable: false)
+                    Id = table.Column<string>(type: "text", nullable: false),
+                    Id_City = table.Column<int>(type: "integer", nullable: false),
+                    Gallery = table.Column<byte[][]>(type: "bytea[]", nullable: true),
+                    AppUserId = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AppUserActivity", x => x.Id);
+                    table.PrimaryKey("PK_AppUser", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AppUserActivity_Activities_Id_Activity",
-                        column: x => x.Id_Activity,
-                        principalTable: "Activities",
+                        name: "FK_AppUser_AppUser_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AppUser",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_AppUser_AspNetUsers_Id",
+                        column: x => x.Id,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AppUserActivity_User_Id_User",
-                        column: x => x.Id_User,
-                        principalTable: "User",
+                        name: "FK_AppUser_City_Id_City",
+                        column: x => x.Id_City,
+                        principalTable: "City",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -198,7 +358,7 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                     Close_Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     Have_Home = table.Column<bool>(type: "boolean", nullable: true),
                     Is_Reservas = table.Column<bool>(type: "boolean", nullable: true),
-                    Id_User = table.Column<int>(type: "integer", nullable: true),
+                    Id_User = table.Column<string>(type: "text", nullable: true),
                     Active = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
@@ -211,10 +371,37 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Restaurant_User_Id_User",
+                        name: "FK_Restaurant_RestaurantChief_Id_User",
                         column: x => x.Id_User,
-                        principalTable: "User",
+                        principalTable: "RestaurantChief",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AppUserActivity",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Id_User = table.Column<string>(type: "text", nullable: false),
+                    Id_Activity = table.Column<int>(type: "integer", nullable: false),
+                    Active = table.Column<bool>(type: "boolean", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppUserActivity", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AppUserActivity_Activities_Id_Activity",
+                        column: x => x.Id_Activity,
+                        principalTable: "Activities",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AppUserActivity_AppUser_Id_User",
+                        column: x => x.Id_User,
+                        principalTable: "AppUser",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -223,7 +410,6 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Id_User = table.Column<int>(type: "integer", nullable: false),
                     Id_Res = table.Column<int>(type: "integer", nullable: false),
                     Discount = table.Column<int>(type: "integer", nullable: false),
                     Expire_Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
@@ -364,22 +550,22 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Id_Coupon = table.Column<int>(type: "integer", nullable: false),
-                    Id_AppUser = table.Column<int>(type: "integer", nullable: false),
+                    Id_AppUser = table.Column<string>(type: "text", nullable: false),
                     Active = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CouponAppUser", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CouponAppUser_Coupon_Id_Coupon",
-                        column: x => x.Id_Coupon,
-                        principalTable: "Coupon",
+                        name: "FK_CouponAppUser_AppUser_Id_AppUser",
+                        column: x => x.Id_AppUser,
+                        principalTable: "AppUser",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CouponAppUser_User_Id_AppUser",
-                        column: x => x.Id_AppUser,
-                        principalTable: "User",
+                        name: "FK_CouponAppUser_Coupon_Id_Coupon",
+                        column: x => x.Id_Coupon,
+                        principalTable: "Coupon",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -448,6 +634,7 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                     Opinion = table.Column<string>(type: "character varying(240)", maxLength: 240, nullable: false),
                     Photos = table.Column<byte[][]>(type: "bytea[]", nullable: true),
                     DateWriting = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    Id_User = table.Column<string>(type: "text", nullable: true),
                     Is_Util = table.Column<bool>(type: "boolean", nullable: false),
                     Is_Funny = table.Column<bool>(type: "boolean", nullable: false),
                     Review_Type = table.Column<string>(type: "character varying(13)", maxLength: 13, nullable: false),
@@ -465,6 +652,11 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                 {
                     table.PrimaryKey("PK_Review", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Review_AppUser_Id_User",
+                        column: x => x.Id_User,
+                        principalTable: "AppUser",
+                        principalColumn: "Id");
+                    table.ForeignKey(
                         name: "FK_Review_Plate_Id_Plate",
                         column: x => x.Id_Plate,
                         principalTable: "Plate",
@@ -479,6 +671,16 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_AppUser_AppUserId",
+                table: "AppUser",
+                column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppUser_Id_City",
+                table: "AppUser",
+                column: "Id_City");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AppUserActivity_Id_Activity",
                 table: "AppUserActivity",
                 column: "Id_Activity");
@@ -487,6 +689,43 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                 name: "IX_AppUserActivity_Id_User",
                 table: "AppUserActivity",
                 column: "Id_User");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetRoleClaims_RoleId",
+                table: "AspNetRoleClaims",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "RoleNameIndex",
+                table: "AspNetRoles",
+                column: "NormalizedName",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserClaims_UserId",
+                table: "AspNetUserClaims",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserLogins_UserId",
+                table: "AspNetUserLogins",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserRoles_RoleId",
+                table: "AspNetUserRoles",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "EmailIndex",
+                table: "AspNetUsers",
+                column: "NormalizedEmail");
+
+            migrationBuilder.CreateIndex(
+                name: "UserNameIndex",
+                table: "AspNetUsers",
+                column: "NormalizedUserName",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_City_Id_Prov",
@@ -594,16 +833,34 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                 column: "Id_Res");
 
             migrationBuilder.CreateIndex(
-                name: "IX_User_AppUserId",
-                table: "User",
-                column: "AppUserId");
+                name: "IX_Review_Id_User",
+                table: "Review",
+                column: "Id_User");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Administrator");
+
+            migrationBuilder.DropTable(
                 name: "AppUserActivity");
+
+            migrationBuilder.DropTable(
+                name: "AspNetRoleClaims");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserClaims");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserLogins");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserRoles");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
                 name: "CouponAppUser");
@@ -630,6 +887,9 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                 name: "Activities");
 
             migrationBuilder.DropTable(
+                name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
                 name: "Coupon");
 
             migrationBuilder.DropTable(
@@ -640,6 +900,9 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Service");
+
+            migrationBuilder.DropTable(
+                name: "AppUser");
 
             migrationBuilder.DropTable(
                 name: "Plate");
@@ -657,10 +920,13 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                 name: "City");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "RestaurantChief");
 
             migrationBuilder.DropTable(
                 name: "Province");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
         }
     }
 }

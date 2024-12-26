@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "N/J5acl/pdQ=",
+  "dgSpecHash": "yoaOE/XSVAo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Johny\\Desktop\\SaborCubano\\SaborCubano-Backend\\SaborCubano.API\\SaborCubano.API.csproj",
+  "projectFilePath": "C:\\Users\\Johny\\Desktop\\Projects\\Work\\SaborCubano\\SaborCubano-Backend\\SaborCubano.API\\SaborCubano.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Johny\\.nuget\\packages\\fastendpoints\\5.31.0.12-beta\\fastendpoints.5.31.0.12-beta.nupkg.sha512",
     "C:\\Users\\Johny\\.nuget\\packages\\fastendpoints.attributes\\5.31.0.12-beta\\fastendpoints.attributes.5.31.0.12-beta.nupkg.sha512",
@@ -108,5 +108,12 @@
     "C:\\Users\\Johny\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\Johny\\.nuget\\packages\\yamldotnet\\15.1.4\\yamldotnet.15.1.4.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error al obtener los datos de vulnerabilidad del paquete: No se puede cargar el índice de servicio del origen https://api.nuget.org/v3/index.json."
+    }
+  ]
 }

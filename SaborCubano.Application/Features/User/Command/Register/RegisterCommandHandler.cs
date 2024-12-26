@@ -12,9 +12,17 @@ public record class RegisterCommandHandler(ITokenGenerator tokenGenerator
     private readonly ITokenGenerator _generator = tokenGenerator;
     public async Task<RegisterResponseCommand> Handle(RegisterRequestCommand request, CancellationToken cancellationToken)
     { 
-        var user = await _repo.CreateAppUserAsync(request.toModel());
+        var city = await _repo.FindCity(request.city!);
 
-        string token = _generator.GenerateJwt(user.Id, user.User_Name, user.Email!);
+        if(city is null) throw new Exception("CITY_NOT_FOUND");
+
+        var model = request.toModel();
+        ((AppUser)model).City = city;
+
+
+        var user = await _repo.CreateAppUserAsync(model);
+
+        string token = _generator.GenerateJwt(user.Id, user.UserName!, user.Email!);
         return ((AppUser)user).toResponse(token);
     }
 }

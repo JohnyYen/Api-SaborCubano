@@ -12,8 +12,8 @@ using SaborCubano.Infrastructure.Persistence;
 namespace SaborCubano.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20241205170449_Identity")]
-    partial class Identity
+    [Migration("20241225222604_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -629,6 +629,9 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                     b.Property<DateTime?>("DateWriting")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("Id_User")
+                        .HasColumnType("text");
+
                     b.Property<bool>("Is_Funny")
                         .HasColumnType("boolean");
 
@@ -654,6 +657,8 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                         .HasColumnType("character varying(13)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Id_User");
 
                     b.ToTable("Review");
 
@@ -735,11 +740,6 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<string>("User_Name")
-                        .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("character varying(25)");
 
@@ -1079,6 +1079,15 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                     b.Navigation("City");
                 });
 
+            modelBuilder.Entity("api.Models.Review", b =>
+                {
+                    b.HasOne("api.Models.AppUser", "AppUser")
+                        .WithMany("Reviews")
+                        .HasForeignKey("Id_User");
+
+                    b.Navigation("AppUser");
+                });
+
             modelBuilder.Entity("api.Models.PlateReview", b =>
                 {
                     b.HasOne("api.Models.Plate", "Plate")
@@ -1210,6 +1219,8 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                     b.Navigation("AppUsers");
 
                     b.Navigation("Coupon");
+
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("api.Models.RestaurantChief", b =>

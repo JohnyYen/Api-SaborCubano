@@ -9,6 +9,7 @@ public abstract class DeleteEndpoint<TRequest, TResponse, TMediator>
 (IMediator mediator, string route) : Endpoint<TRequest, TResponse>
 where TRequest : GetByIdRequest,new()
 where TResponse : IResponse, new()
+where TMediator : class, new()
 {
     protected readonly IMediator _mediator = mediator;
     

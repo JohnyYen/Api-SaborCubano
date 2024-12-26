@@ -10,8 +10,7 @@ public static class UserMapper
         return new AppUser{
             Email = dto.email,
             Password = dto.password,
-            User_Name = dto.user_name, 
-           
+            UserName = dto.user_name,  
         };
 
         // City = new City(dto.city),
@@ -20,7 +19,7 @@ public static class UserMapper
     public static RegisterResponseCommand toResponse(this AppUser user, string token) => new RegisterResponseCommand
     {
         Id = user.Id,
-        User_name = user.User_Name,
+        User_name = user.UserName!,
         Email = user.Email!,
         Token = token,
     };

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Johny\\Desktop\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Domain\\SaborCubano.Domain.csproj": {}
+    "C:\\Users\\Johny\\Desktop\\Projects\\Work\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Domain\\SaborCubano.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Johny\\Desktop\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Domain\\SaborCubano.Domain.csproj": {
+    "C:\\Users\\Johny\\Desktop\\Projects\\Work\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Domain\\SaborCubano.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Johny\\Desktop\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Domain\\SaborCubano.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Johny\\Desktop\\Projects\\Work\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Domain\\SaborCubano.Domain.csproj",
         "projectName": "SaborCubano.Domain",
-        "projectPath": "C:\\Users\\Johny\\Desktop\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Domain\\SaborCubano.Domain.csproj",
+        "projectPath": "C:\\Users\\Johny\\Desktop\\Projects\\Work\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Domain\\SaborCubano.Domain.csproj",
         "packagesPath": "C:\\Users\\Johny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Johny\\Desktop\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Johny\\Desktop\\Projects\\Work\\SaborCubano\\SaborCubano-Backend\\SaborCubano.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Johny\\AppData\\Roaming\\NuGet\\NuGet.Config"

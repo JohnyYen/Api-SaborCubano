@@ -20,7 +20,10 @@ namespace api.Models
         public ICollection<byte[]>? Photos {get; set;}
 
         public DateTime? DateWriting {get; set;}
-    
+
+        [ForeignKey(nameof(AppUser))]
+        public string? Id_User {get; set;}
+        public AppUser? AppUser {get; set;}
         public bool Is_Util {get; set;}
         public bool Is_Funny {get; set;}
 

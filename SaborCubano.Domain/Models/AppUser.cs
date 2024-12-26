@@ -18,5 +18,6 @@ namespace api.Models
         public ICollection<byte[]>? Gallery {get; set;}
         public ICollection<AppUserActivity>? Activities {get; set;}
         public ICollection<CouponAppUser>? Coupon {get; set;}
+        public ICollection<Review>? Reviews {get; set;}
     }
 }

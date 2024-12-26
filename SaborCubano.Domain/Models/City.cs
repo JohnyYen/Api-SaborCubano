@@ -17,7 +17,11 @@ namespace api.Models
         public Province? Province {get; set;}
 
         public string Name {get; set;} = String.Empty;
-
+        
+        public City (int id_Prov, string name){
+            Id_Prov = id_Prov;
+            Name = name;
+        }
         public ICollection<Restaurant>? Restaurants {get; set;}
     }
 }
