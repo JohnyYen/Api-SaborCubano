@@ -21,6 +21,7 @@ public static class ApplicationInjectionService
         services.AddTransient<ServiceMapper>();
         services.AddTransient<BussinesTypeMapper>();
         services.AddTransient<FoodTypeMapper>();
+        services.AddTransient<RestaurantMapper>();
         return services;
     }
 }

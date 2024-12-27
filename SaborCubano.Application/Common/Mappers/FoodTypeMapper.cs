@@ -18,7 +18,7 @@ public class FoodTypeMapper : IMapper<FoodTypeModel>
 
     public FoodTypeModel toModel(CreateEntityCommandDto<FoodTypeModel> dto)
     {
-          var thisDTO = (CreateFoodTypeDTO)dto;
+        var thisDTO = (CreateFoodTypeDTO)dto;
         return new FoodTypeModel {
             Name = thisDTO.Name
         };
