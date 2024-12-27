@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SaborCubano.Application.Interfaces;
+using SaborCubano.Application.Interfaces.Repositories;
 using SaborCubano.Infrastructure.Persistence;
 using SaborCubano.Infrastructure.Repositories;
 using SaborCubano.Infrastructure.Security.TokenGenerator;
@@ -43,6 +44,8 @@ public static class InfrastructureService
         services.AddScoped<IBussinesRepository, BussinesRepository>();
         services.AddScoped<ICookTypeRepository, CookTypeRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IRestaurantReviewRepository, RestaurantReviewRepository>();
+        services.AddScoped<IPlateReviewRepository, PlateReviewRepository>();
         
         return services;
     }

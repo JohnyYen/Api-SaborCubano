@@ -11,6 +11,15 @@
 
   <ItemGroup>
     <Folder Include="Common\Utils\" />
+    <Folder Include="Features\PlateReview\" />
+    <Folder Include="Features\PlateReview\Command\" />
+    <Folder Include="Features\PlateReview\Command\Create\" />
+    <Folder Include="Features\PlateReview\Command\Delete\" />
+    <Folder Include="Features\PlateReview\Command\Update\" />
+    <Folder Include="Features\PlateReview\Query\" />
+    <Folder Include="Features\PlateReview\Query\GetById\" />
+    <Folder Include="Features\PlateReview\Query\ToList\" />
+    <Folder Include="Features\User\Command\Add_Image_Gallery\" />
     <Folder Include="Features\User\Query\" />
   </ItemGroup>
 
