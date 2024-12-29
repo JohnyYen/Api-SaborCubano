@@ -21,8 +21,4 @@
     <ProjectReference Include="..\SaborCubano.Infrastructure\SaborCubano.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Restaurant_Review\" />
-  </ItemGroup>
-
 </Project>

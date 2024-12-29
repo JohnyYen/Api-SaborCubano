@@ -6,7 +6,8 @@ using SaborCubano.Application.Common.DTOs.PlateReview;
 namespace SaborCubano.API.Features.Plate_Review.Create;
 
 public class CreatePlateReviewEndpoint(IMediator mediator)
-: CreateEndpoint<CreatePlateReviewDTO, ResponsePlateReviewDTO, PlateReview>(mediator, "plate_review/{id:int}")
+: CreateEndpoint<CreatePlateReviewDTO, ResponsePlateReviewDTO, PlateReview>
+(mediator, "plate_review/{id:int}")
 {
     public override void AddConfiguration()
     {

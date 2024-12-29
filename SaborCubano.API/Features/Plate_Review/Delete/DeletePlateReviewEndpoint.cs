@@ -11,6 +11,6 @@ public class DeletePlateReviewEndpoint(IMediator mediator)
 {
     public override void AddConfiguration()
     {
-        Description(x => x.WithTags("Food Types"));
+        Description(x => x.WithTags("Plate Review"));
     }
 }
