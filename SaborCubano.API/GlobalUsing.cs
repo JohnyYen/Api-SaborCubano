@@ -1,5 +1,6 @@
 global using FastEndpoints;
 global using MediatR;
+global using api.Models;
 global using ServiceModel = api.Models.Service;
 global using RestaurantModel = api.Models.Restaurant;
 global using ActivityModel = api.Models.Activity;
