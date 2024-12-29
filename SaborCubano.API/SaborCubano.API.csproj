@@ -22,7 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\User\" />
+    <Folder Include="Features\Plate_Review\" />
+    <Folder Include="Features\Restaurant\" />
+    <Folder Include="Features\Restaurant_Review\" />
   </ItemGroup>
 
 </Project>

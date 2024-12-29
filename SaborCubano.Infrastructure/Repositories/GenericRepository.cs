@@ -9,7 +9,7 @@ namespace SaborCubano.Infrastructure.Repositories;
 
 public class GenericRepository<TModel> : IGenericRepository<TModel> where TModel : BaseEntity
 {
-   private readonly ApplicationDBContext _context;
+   protected readonly ApplicationDBContext _context;
 
     public GenericRepository(ApplicationDBContext context){
         _context = context;

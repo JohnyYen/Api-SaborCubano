@@ -12,3 +12,4 @@ global using PlateModel = api.Models.Plate;
 global using CouponModel = api.Models.Coupon;
 global using RestaurantReviewModel = api.Models.RestaurantReview;
 global using PlateReviewModel = api.Models.PlateReview;
+global using CoordinatesModel = SaborCubano.Domain.Models.Coordinates;

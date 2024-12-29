@@ -3,7 +3,7 @@ using SaborCubano.Application.Common.DTOs.Review;
 
 namespace SaborCubano.Application.Common.DTOs.PlateReview;
 
-public class DeletePlateReviewDTO : DeleteReviewDTO
+public class DeletePlateReviewDTO : DeleteEntityCommandDto<PlateReviewModel>
 {
 
 }

@@ -35,6 +35,10 @@ namespace api.Models
 
         public bool? Is_Reservas {get; set;}
 
+        [ForeignKey(nameof(Coordinates))]
+        public int? Id_Coord {get; set;}
+        public Coordinates? Coordinates {get; set;}
+
         [ForeignKey(nameof(Chief))]
         public string? Id_User {get; set;}
         public RestaurantChief? Chief {get; set;}

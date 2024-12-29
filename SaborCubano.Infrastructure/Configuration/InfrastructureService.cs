@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SaborCubano.Application.Interfaces;
 using SaborCubano.Application.Interfaces.Repositories;
+using SaborCubano.Domain.Models;
 using SaborCubano.Infrastructure.Persistence;
 using SaborCubano.Infrastructure.Repositories;
 using SaborCubano.Infrastructure.Security.TokenGenerator;
@@ -46,6 +47,7 @@ public static class InfrastructureService
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IRestaurantReviewRepository, RestaurantReviewRepository>();
         services.AddScoped<IPlateReviewRepository, PlateReviewRepository>();
+        services.AddScoped<ICoordenatesRepository, CoordentatesRepository>();
         
         return services;
     }
