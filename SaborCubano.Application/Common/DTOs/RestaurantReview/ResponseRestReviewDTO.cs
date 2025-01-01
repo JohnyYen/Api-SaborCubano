@@ -6,5 +6,5 @@ namespace SaborCubano.Application.Common.DTOs.RestaurantReview;
 
 public class ResponseRestReviewDTO : ResponseDto<RestaurantReviewModel>
 {
-
+    
 }

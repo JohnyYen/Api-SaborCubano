@@ -48,7 +48,8 @@ public static class InfrastructureService
         services.AddScoped<IRestaurantReviewRepository, RestaurantReviewRepository>();
         services.AddScoped<IPlateReviewRepository, PlateReviewRepository>();
         services.AddScoped<ICoordenatesRepository, CoordentatesRepository>();
-        
+        services.AddScoped<IIngredientRepository, IngredientRepository>();
+
         return services;
     }
     public static IServiceCollection AddAuthentication(this IServiceCollection services, IConfiguration configuration){

@@ -26,6 +26,8 @@ public static class ApplicationInjectionService
         services.AddTransient<PlateReviewMapper>();
         services.AddTransient<RestaurantReviewMapper>();
         services.AddTransient<CoordinatesMapper>();
+        services.AddTransient<IngredientMapper>();
+
         return services;
     }
 }

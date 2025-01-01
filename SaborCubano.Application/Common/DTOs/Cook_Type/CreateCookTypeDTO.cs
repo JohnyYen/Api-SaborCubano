@@ -5,5 +5,5 @@ namespace SaborCubano.Application.Common.DTOs.Cook_Type;
 
 public class CreateCookTypeDTO : CreateEntityCommandDto<CookTypeModel>
 {
-
+    public string Name {get; set;}
 }

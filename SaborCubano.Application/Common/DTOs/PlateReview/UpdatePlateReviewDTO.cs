@@ -6,5 +6,5 @@ namespace SaborCubano.Application.Common.DTOs.PlateReview;
 
 public class UpdatePlateReviewDTO : UpdateEntityCommandDto<PlateReviewModel>
 {
-
+    public string Description {get; set;}
 }

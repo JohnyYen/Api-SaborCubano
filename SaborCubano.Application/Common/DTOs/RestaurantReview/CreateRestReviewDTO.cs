@@ -6,5 +6,5 @@ namespace SaborCubano.Application.Common.DTOs.RestaurantReview;
 
 public class CreateRestReviewDTO : CreateEntityCommandDto<RestaurantReviewModel>
 {
-
+    public string Description {get; set;}
 }

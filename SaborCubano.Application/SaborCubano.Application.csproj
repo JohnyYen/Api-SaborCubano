@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <Folder Include="Common\Utils\" />
-    <Folder Include="Features\User\Query\" />
+    <Folder Include="Features\Plates\" />
   </ItemGroup>
 
   <PropertyGroup>
