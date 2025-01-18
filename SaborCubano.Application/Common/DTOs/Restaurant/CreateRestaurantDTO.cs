@@ -5,5 +5,9 @@ namespace SaborCubano.Application.Common.DTOs.Restaurant;
 
 public class CreateRestaurantDTO : CreateEntityCommandDto<RestaurantModel>
 {
-    public string Name {get; set;}
+    public string Name {get; set;} = null!;
+
+    public IEnumerable<int> Ids_Service{get; set;} = null!;
+    public IEnumerable<int> Ids_FoodType{get; set;} = null!;
+    public IEnumerable<int> Ids_BussinesType{get; set;} = null!;
 }

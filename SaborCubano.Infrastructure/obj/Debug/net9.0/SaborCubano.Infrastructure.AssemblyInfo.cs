@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SaborCubano.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e972b2f10fb4a83898974146bf1b6d4a60d39e75")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+673407409da859b472b61a52f00db9d58f7009cc")]
 [assembly: System.Reflection.AssemblyProductAttribute("SaborCubano.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SaborCubano.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -10,4 +10,8 @@ public class CreatePlateReviewCommandHandler(IPlateReviewRepository repo, PlateR
 : CreateEntityCommandHandler<PlateReviewModel, CreatePlateReviewDTO>(repo, mapper)
 {
 
+    public override PlateReviewModel AddAtributes(PlateReviewModel model, CreatePlateReviewDTO request)
+    {
+        throw new NotImplementedException();
+    }
 }

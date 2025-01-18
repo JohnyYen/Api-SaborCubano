@@ -6,8 +6,13 @@ using SaborCubano.Application.Interfaces.Repositories;
 
 namespace SaborCubano.Application.Features.Ingredient.Command.Create;
 
-public class CreateIngredientCommandHandler(IIngredientRepository repo, IngredientMapper mapper)
+public class CreateIngredientCommandHandler
+(IIngredientRepository repo, IngredientMapper mapper)
 : CreateEntityCommandHandler<IngredientModel, CreateIngredientDTO>(repo, mapper)
 {
 
+    public override IngredientModel AddAtributes(IngredientModel model, CreateIngredientDTO request)
+    {
+        throw new NotImplementedException();
+    }
 }

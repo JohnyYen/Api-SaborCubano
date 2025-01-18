@@ -7,8 +7,13 @@ using SaborCubano.Application.Interfaces.Repositories;
 
 namespace SaborCubano.Application.Features.RestaurantReview.Command.Create;
 
-public class CreateRestReviewCommandHandler(IRestaurantReviewRepository repo, RestaurantReviewMapper mapper)
-: CreateEntityCommandHandler<RestaurantReviewModel, CreateRestReviewDTO>(repo, mapper)
+public class CreateRestReviewCommandHandler
+(IRestaurantReviewRepository repo, RestaurantReviewMapper mapper)
+: CreateEntityCommandHandler<RestaurantReviewModel, CreateRestReviewDTO>
+(repo, mapper)
 {
-
+    public override RestaurantReviewModel AddAtributes(RestaurantReviewModel model, CreateRestReviewDTO request)
+    {
+        throw new NotImplementedException();
+    }
 }

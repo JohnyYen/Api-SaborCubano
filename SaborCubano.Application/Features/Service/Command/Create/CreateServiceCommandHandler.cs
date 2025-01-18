@@ -10,5 +10,8 @@ public class CreateServiceCommandHandler
 (IServiceRepository repo, ServiceMapper mapper)
 : CreateEntityCommandHandler<ServiceModel, CreateServiceDTO>(repo, mapper)
 {
-
+    public override ServiceModel AddAtributes(ServiceModel model, CreateServiceDTO request)
+    {
+        throw new NotImplementedException();
+    }
 }

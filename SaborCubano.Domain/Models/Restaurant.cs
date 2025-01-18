@@ -43,11 +43,11 @@ namespace api.Models
         public string? Id_User {get; set;}
         public RestaurantChief? Chief {get; set;}
         
-        public ICollection<RestaurantBussinesType>? BussinesTypes {get; set;}
+        public ICollection<BussinesType> BussinesTypes {get; set;} = new List<BussinesType>();
 
-        public ICollection<RestaurantFoodTypes>? FoodTypes {get; set;}
+        public ICollection<FoodType> FoodTypes {get; set;} = new List<FoodType>();
 
-        public ICollection<RestaurantService>? Services {get; set;}
+        public ICollection<Service> Services {get; set;} = new List<Service>();
 
         public ICollection<Coupon>? Coupons {get; set;}
     }

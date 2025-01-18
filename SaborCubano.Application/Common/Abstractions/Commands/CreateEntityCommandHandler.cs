@@ -19,10 +19,11 @@ where TRequest : CreateEntityCommandDto<TModel>
     public async Task<ResponseDto<TModel>> Handle(TRequest request, CancellationToken cancellationToken)
     {
         var entity = _mapper.toModel(request);
+        entity = AddAtributes(entity, request);
         var model = await _repo.CreateAsync(entity);
-
-        Console.WriteLine(model.GetType());
 
         return _mapper.toDto(model);
     }
+
+    public abstract TModel AddAtributes(TModel model,TRequest request);
 }

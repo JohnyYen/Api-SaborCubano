@@ -6,7 +6,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SaborCubano.Application.Interfaces;
 using SaborCubano.Application.Interfaces.Repositories;
-using SaborCubano.Domain.Models;
 using SaborCubano.Infrastructure.Persistence;
 using SaborCubano.Infrastructure.Repositories;
 using SaborCubano.Infrastructure.Security.TokenGenerator;
@@ -37,6 +36,7 @@ public static class InfrastructureService
         services.AddDbContext<ApplicationDBContext>(options => {
             options.UseNpgsql(builder.GetConnectionString("DefaultConnection"));
         });
+
 
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddScoped<IRestaurantRepository, RestaurantRepository>();

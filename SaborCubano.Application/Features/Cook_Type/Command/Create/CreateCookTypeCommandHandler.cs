@@ -9,5 +9,8 @@ namespace SaborCubano.Application.Features.Cook_Type.Command.Create;
 public class CreateCookTypeCommandHandler(ICookTypeRepository repo, CookTypeMapper mapper)
 : CreateEntityCommandHandler<CookTypeModel, CreateCookTypeDTO>(repo, mapper)
 {
-
+    public override CookTypeModel AddAtributes(CookTypeModel model, CreateCookTypeDTO request)
+    {
+        throw new NotImplementedException();
+    }
 }

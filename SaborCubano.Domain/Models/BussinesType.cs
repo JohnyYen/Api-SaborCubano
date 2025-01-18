@@ -14,6 +14,6 @@ namespace api.Models
     {
         public string Name {get; set;} = null!;
 
-        public ICollection<RestaurantBussinesType>? RestaurantBussinesTypes {get; set;}
+        public ICollection<Restaurant>? RestaurantBussinesTypes {get; set;}
     }
 }

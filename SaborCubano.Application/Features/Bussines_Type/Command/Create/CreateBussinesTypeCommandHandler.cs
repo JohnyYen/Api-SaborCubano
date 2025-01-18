@@ -10,5 +10,8 @@ namespace SaborCubano.Application.Features.Bussines_Type.Command.Create;
 public class CreateBussinesTypeCommandHandler(IBussinesRepository repo, BussinesTypeMapper mapper)
 : CreateEntityCommandHandler<BussinesType, CreateBussinesTypeDTO>(repo, mapper)
 {
-
+    public override BussinesType AddAtributes(BussinesType model, CreateBussinesTypeDTO request)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -9,5 +9,8 @@ namespace SaborCubano.Application.Features.Coordenates.Command.Create;
 public class CreateCoordinatesCommandHandler(ICoordenatesRepository repo, CoordinatesMapper mapper)
 : CreateEntityCommandHandler<CoordinatesModel, CreateCoordinatesDTO>(repo, mapper)
 {
-
+    public override CoordinatesModel AddAtributes(CoordinatesModel model, CreateCoordinatesDTO request)
+    {
+        throw new NotImplementedException();
+    }
 }

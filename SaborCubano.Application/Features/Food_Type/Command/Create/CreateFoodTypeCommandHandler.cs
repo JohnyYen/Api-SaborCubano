@@ -11,4 +11,8 @@ public class CreateFoodTypeCommandHandler
 : CreateEntityCommandHandler<FoodTypeModel, CreateFoodTypeDTO>(repo, mapper)
 {
 
+    public override FoodTypeModel AddAtributes(FoodTypeModel model, CreateFoodTypeDTO request)
+    {
+        throw new NotImplementedException();
+    }
 }
