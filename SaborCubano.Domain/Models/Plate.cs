@@ -26,7 +26,7 @@ namespace api.Models
 
         public float Calories {get; set;}
 
-        public ICollection<PlateIngredient>? Ingredients {get; set;}
-        public ICollection<PlateCookType>? CookTypes {get; set;}
+        public ICollection<Ingredient> Ingredients {get; set;} = null!;
+        public ICollection<CookType> CookTypes {get; set;} = null!;
     }
 }

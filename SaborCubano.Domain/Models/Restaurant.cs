@@ -17,7 +17,7 @@ namespace api.Models
         [ForeignKey(nameof(City))]
         public int Id_City {get; set;}
 
-        public City? City {get; set;}
+        public City City {get; set;} = null!;
 
         public string Name {get; set;} = null!;
 

@@ -13,4 +13,7 @@ public class CreatePlateDTO : CreateEntityCommandDto<PlateModel>
 
     public float Calories {get; set;}
 
+    public IEnumerable<int> Ids_Ingredient {get; set;} = null!;
+    public IEnumerable<int> Ids_CookType {get; set;} = null!;
+
 }
