@@ -12,6 +12,6 @@ public class CreateBussinesTypeCommandHandler(IBussinesRepository repo, Bussines
 {
     public override BussinesType AddAtributes(BussinesType model, CreateBussinesTypeDTO request)
     {
-        throw new NotImplementedException();
+        return model;
     }
 }

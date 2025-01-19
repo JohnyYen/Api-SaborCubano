@@ -1,5 +1,6 @@
 using System;
 using System.Linq.Expressions;
+using api.Models;
 using SaborCubano.Application.Interfaces;
 using SaborCubano.Domain;
 using SaborCubano.Domain.Commons;
@@ -16,9 +17,18 @@ public class GenericRepository<TModel> : IGenericRepository<TModel> where TModel
     }
     public async Task<TModel> CreateAsync(TModel entity)
     {
+       try
+       {
         await _context.GetDbSet<TModel>().AddAsync(entity);
         await _context.SaveChangesAsync();
-        return entity;
+       }
+       catch (ArgumentNullException e)
+       {
+        Console.WriteLine(e.Source);
+        Console.WriteLine(e.StackTrace);
+       }
+
+       return entity;
     }
 
     public async Task<TModel?> DeleteAsync(int id)

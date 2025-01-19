@@ -11,9 +11,6 @@
 
   <ItemGroup>
     <Folder Include="Common\Utils\" />
-    <Folder Include="Features\Plates\" />
-    <Folder Include="Features\Plates\Command\" />
-    <Folder Include="Features\Plates\Command\Create\" />
     <Folder Include="Features\Plates\Command\Delete\" />
     <Folder Include="Features\Plates\Command\Update\" />
     <Folder Include="Features\Plates\Query\" />

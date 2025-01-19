@@ -12,6 +12,6 @@ public class CreateServiceCommandHandler
 {
     public override ServiceModel AddAtributes(ServiceModel model, CreateServiceDTO request)
     {
-        throw new NotImplementedException();
+        return model;
     }
 }

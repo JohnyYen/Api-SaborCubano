@@ -11,6 +11,6 @@ public class CreateCookTypeCommandHandler(ICookTypeRepository repo, CookTypeMapp
 {
     public override CookTypeModel AddAtributes(CookTypeModel model, CreateCookTypeDTO request)
     {
-        throw new NotImplementedException();
+       return model;
     }
 }
