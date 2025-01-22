@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SaborCubano.Infrastructure.Persistence;
@@ -11,9 +12,11 @@ using SaborCubano.Infrastructure.Persistence;
 namespace SaborCubano.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250119160822_Drink")]
+    partial class Drink
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,6 +55,21 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                     b.ToTable("AppUserCoupon");
                 });
 
+            modelBuilder.Entity("BussinesTypeRestaurant", b =>
+                {
+                    b.Property<int>("BussinesTypesId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("RestaurantBussinesTypesId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("BussinesTypesId", "RestaurantBussinesTypesId");
+
+                    b.HasIndex("RestaurantBussinesTypesId");
+
+                    b.ToTable("BussinesTypeRestaurant");
+                });
+
             modelBuilder.Entity("CookTypePlate", b =>
                 {
                     b.Property<int>("CookTypesId")
@@ -65,6 +83,21 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                     b.HasIndex("PlatesId");
 
                     b.ToTable("CookTypePlate");
+                });
+
+            modelBuilder.Entity("FoodTypeRestaurant", b =>
+                {
+                    b.Property<int>("FoodTypesId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("RestaurantsId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("FoodTypesId", "RestaurantsId");
+
+                    b.HasIndex("RestaurantsId");
+
+                    b.ToTable("FoodTypeRestaurant");
                 });
 
             modelBuilder.Entity("IngredientPlate", b =>
@@ -214,47 +247,17 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("RestaurantBussinesType", b =>
-                {
-                    b.Property<int>("BussinesTypeId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("RestaurantId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("BussinesTypeId", "RestaurantId");
-
-                    b.HasIndex("RestaurantId");
-
-                    b.ToTable("RestaurantBussinesType");
-                });
-
-            modelBuilder.Entity("RestaurantFoodType", b =>
-                {
-                    b.Property<int>("FoodTypeId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("RestaurantId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("FoodTypeId", "RestaurantId");
-
-                    b.HasIndex("RestaurantId");
-
-                    b.ToTable("RestaurantFoodType");
-                });
-
             modelBuilder.Entity("RestaurantService", b =>
                 {
-                    b.Property<int>("RestaurantId")
+                    b.Property<int>("RestaurantsId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("ServiceId")
+                    b.Property<int>("ServicesId")
                         .HasColumnType("integer");
 
-                    b.HasKey("RestaurantId", "ServiceId");
+                    b.HasKey("RestaurantsId", "ServicesId");
 
-                    b.HasIndex("ServiceId");
+                    b.HasIndex("ServicesId");
 
                     b.ToTable("RestaurantService");
                 });
@@ -809,6 +812,21 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("BussinesTypeRestaurant", b =>
+                {
+                    b.HasOne("api.Models.BussinesType", null)
+                        .WithMany()
+                        .HasForeignKey("BussinesTypesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("api.Models.Restaurant", null)
+                        .WithMany()
+                        .HasForeignKey("RestaurantBussinesTypesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("CookTypePlate", b =>
                 {
                     b.HasOne("api.Models.CookType", null)
@@ -820,6 +838,21 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                     b.HasOne("api.Models.Plate", null)
                         .WithMany()
                         .HasForeignKey("PlatesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("FoodTypeRestaurant", b =>
+                {
+                    b.HasOne("api.Models.FoodType", null)
+                        .WithMany()
+                        .HasForeignKey("FoodTypesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("api.Models.Restaurant", null)
+                        .WithMany()
+                        .HasForeignKey("RestaurantsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -890,47 +923,17 @@ namespace SaborCubano.Infrastructure.Persistence.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("RestaurantBussinesType", b =>
-                {
-                    b.HasOne("api.Models.BussinesType", null)
-                        .WithMany()
-                        .HasForeignKey("BussinesTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("api.Models.Restaurant", null)
-                        .WithMany()
-                        .HasForeignKey("RestaurantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("RestaurantFoodType", b =>
-                {
-                    b.HasOne("api.Models.FoodType", null)
-                        .WithMany()
-                        .HasForeignKey("FoodTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("api.Models.Restaurant", null)
-                        .WithMany()
-                        .HasForeignKey("RestaurantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("RestaurantService", b =>
                 {
                     b.HasOne("api.Models.Restaurant", null)
                         .WithMany()
-                        .HasForeignKey("RestaurantId")
+                        .HasForeignKey("RestaurantsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("api.Models.Service", null)
                         .WithMany()
-                        .HasForeignKey("ServiceId")
+                        .HasForeignKey("ServicesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

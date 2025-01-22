@@ -4,22 +4,18 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-using api.Models;
-using SaborCubano.Domain;
-using SaborCubano.Domain.Models;
 
 namespace api.Models
 {
-    [Table("Coupon")]
-    public class Coupon : BaseEntity 
+    public class RestaurantReview : Review
     {
-        public ICollection<AppUser>? AppUsers {get; set;} = null!;
+        public int Valoration_Local {get; set;}
+        public int Valoration_Service {get; set;}
+        public int Valoration_Price {get; set;}
+        public int Valoration_Higiene {get; set;}
 
         [ForeignKey(nameof(Restaurant))]
         public int Id_Res {get; set;}
         public Restaurant? Restaurant {get; set;}
-
-        public int Discount {get; set;}
-        public DateTime? Expire_Date {get; set;}
     }
 }

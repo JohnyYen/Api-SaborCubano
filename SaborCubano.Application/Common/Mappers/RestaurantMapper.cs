@@ -14,20 +14,11 @@ public class RestaurantMapper : IMapper<RestaurantModel>
 {
     public ResponseDto<RestaurantModel> toDto(RestaurantModel model)
     {
-        return new ResponseRestaurantDTO{
+        var response = new ResponseRestaurantDTO{
             Id = model.Id,
             Name = model.Name,
-            Close_Date = model.Close_Date,
-            Cont_Num = model.Cont_Num,
             Direction = model.Direction,
-            Email_Res = model.Email_Res,
-            Have_Home = model.Have_Home,
-            Is_Reservas = model.Is_Reservas,
-            Open_Date = model.Open_Date,
-            City = new ResponseCityDTO {
-                Id = model.City.Id,
-                Name = model.City.Name
-            },
+
             BussinesTypes = model.BussinesTypes.Select(b => new ResponseBussinesTypeDTO {
                 Id = b.Id,
                 Name = b.Name
@@ -41,6 +32,8 @@ public class RestaurantMapper : IMapper<RestaurantModel>
                 Name = s.Name
             })
         };
+
+        return response;
     }
 
     public RestaurantModel toModel(CreateEntityCommandDto<RestaurantModel> dto)

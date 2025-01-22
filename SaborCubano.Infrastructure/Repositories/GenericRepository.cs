@@ -19,12 +19,13 @@ public class GenericRepository<TModel> : IGenericRepository<TModel> where TModel
     {
        try
        {
-        await _context.GetDbSet<TModel>().AddAsync(entity);
+        var model = await _context.GetDbSet<TModel>().AddAsync(entity);
+        Console.WriteLine(model.IsKeySet);
         await _context.SaveChangesAsync();
        }
        catch (ArgumentNullException e)
        {
-        Console.WriteLine(e.Source);
+        Console.WriteLine(e.HelpLink);
         Console.WriteLine(e.StackTrace);
        }
 

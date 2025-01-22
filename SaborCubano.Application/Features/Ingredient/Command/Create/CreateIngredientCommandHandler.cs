@@ -1,4 +1,5 @@
 using System;
+using Microsoft.EntityFrameworkCore;
 using SaborCubano.Application.Common.Abstractions.Commands;
 using SaborCubano.Application.Common.DTOs.Ingredient;
 using SaborCubano.Application.Common.Mappers;
@@ -13,6 +14,6 @@ public class CreateIngredientCommandHandler
 
     public override IngredientModel AddAtributes(IngredientModel model, CreateIngredientDTO request)
     {
-        throw new NotImplementedException();
+       return model;
     }
 }

@@ -26,7 +26,7 @@ public class ResponseRestaurantDTO : ResponseDto<RestaurantModel>
 
     public bool? Is_Reservas {get; set;}
 
-    public IEnumerable<ResponseServiceDTO> Services {get; set;} = null!;
-    public IEnumerable<ResponseBussinesTypeDTO> BussinesTypes {get; set;} = null!;
-    public IEnumerable<ResponseFoodTypeDTO> FoodTypes {get; set;} = null!; 
+    public IEnumerable<ResponseServiceDTO> Services {get; set;} = new List<ResponseServiceDTO>();
+    public IEnumerable<ResponseBussinesTypeDTO> BussinesTypes {get; set;} = new List<ResponseBussinesTypeDTO>();
+    public IEnumerable<ResponseFoodTypeDTO> FoodTypes {get; set;} = new List<ResponseFoodTypeDTO>(); 
 }

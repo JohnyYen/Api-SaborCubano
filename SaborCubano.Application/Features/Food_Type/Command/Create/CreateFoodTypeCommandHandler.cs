@@ -13,6 +13,6 @@ public class CreateFoodTypeCommandHandler
 
     public override FoodTypeModel AddAtributes(FoodTypeModel model, CreateFoodTypeDTO request)
     {
-        throw new NotImplementedException();
+        return model;
     }
 }

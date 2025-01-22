@@ -34,13 +34,6 @@ public class CreateRestaurantCommandHandler
             model.BussinesTypes.Add(bussinesType.Result);
         }
 
-        Console.WriteLine(model.BussinesTypes.ToList()[0].Name);
-        Console.WriteLine(model.FoodTypes);
-        Console.WriteLine(model.Services);
-
-        Console.WriteLine(model.Id_City);
-        Console.WriteLine(model.Direction);
-        Console.WriteLine(model.Coupons);
         return model;
     }
 }

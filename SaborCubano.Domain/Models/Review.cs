@@ -27,6 +27,5 @@ namespace api.Models
         public bool Is_Util {get; set;}
         public bool Is_Funny {get; set;}
 
-
     }
 }

@@ -13,18 +13,20 @@ public class GetFoodLevelQueryHandler(IUserRepository repo)
 
     public async Task<ResponseGetFoodieLevel> Handle(GetFoodieLevelQuery request, CancellationToken cancellationToken)
     {
-        var appUser = (AppUser) await repo.FindByIdAsync(request.Id);
+        var user = await _repo.FindByIdAsync(request.Id);
 
-        if(appUser is null)
+        if(user is null)
             throw new Exception("APP_USER_NOT_FOUND");
 
-        var activities = appUser.Activities!.ToList().FindAll(a => a.Id_User == appUser.Id);
+        var appUser = (AppUser)user;
+        //var activities = appUser.Activities!.ToList().FindAll(a => a.Id_User == appUser.Id);
 
         double sumTotal = 0;
-        foreach (var activity in activities)
-        {
-            sumTotal += activity.Activity.Score;
-        }
+        if(appUser.Activities != null)
+            foreach (var activity in appUser.Activities)
+                sumTotal += activity.Score;
+            
+        
         FoodieLevel foodieLevel;
 
         if(sumTotal < 100)
