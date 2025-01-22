@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Backup\" />
     <Folder Include="Commons\Utils\" />
   </ItemGroup>
 
